@@ -61,18 +61,6 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
-		6A00C0B22EA8C12E009B29DF /* Exceptions for "Shared (App)" folder in "Gulgle (iOS)" target */ = {
-			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
-			membershipExceptions = (
-				"/Localized: Resources/Main.html",
-				Assets.xcassets,
-				Resources/Icon.png,
-				Resources/Script.js,
-				Resources/Style.css,
-				ViewController.swift,
-			);
-			target = 6A00C0662EA8C12E009B29DF /* Gulgle (iOS) */;
-		};
 		6A00C0B62EA8C12E009B29DF /* Exceptions for "iOS (Extension)" folder in "Gulgle Extension (iOS)" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
@@ -87,52 +75,10 @@
 			);
 			target = 6A00C0662EA8C12E009B29DF /* Gulgle (iOS) */;
 		};
-		6A00C0BC2EA8C12E009B29DF /* Exceptions for "Shared (App)" folder in "Gulgle (macOS)" target */ = {
-			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
-			membershipExceptions = (
-				"/Localized: Resources/Main.html",
-				Assets.xcassets,
-				Resources/Icon.png,
-				Resources/Script.js,
-				Resources/Style.css,
-				ViewController.swift,
-			);
-			target = 6A00C0782EA8C12E009B29DF /* Gulgle (macOS) */;
-		};
 		6A00C0C02EA8C12E009B29DF /* Exceptions for "macOS (Extension)" folder in "Gulgle Extension (macOS)" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
 				Info.plist,
-			);
-			target = 6A00C08D2EA8C12E009B29DF /* Gulgle Extension (macOS) */;
-		};
-		6A00C0C52EA8C12E009B29DF /* Exceptions for "Shared (Extension)" folder in "Gulgle Extension (iOS)" target */ = {
-			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
-			membershipExceptions = (
-				Resources/_locales,
-				Resources/background.js,
-				Resources/content.js,
-				Resources/images,
-				Resources/manifest.json,
-				Resources/popup.css,
-				Resources/popup.html,
-				Resources/popup.js,
-				SafariWebExtensionHandler.swift,
-			);
-			target = 6A00C0832EA8C12E009B29DF /* Gulgle Extension (iOS) */;
-		};
-		6A00C0C62EA8C12E009B29DF /* Exceptions for "Shared (Extension)" folder in "Gulgle Extension (macOS)" target */ = {
-			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
-			membershipExceptions = (
-				Resources/_locales,
-				Resources/background.js,
-				Resources/content.js,
-				Resources/images,
-				Resources/manifest.json,
-				Resources/popup.css,
-				Resources/popup.html,
-				Resources/popup.js,
-				SafariWebExtensionHandler.swift,
 			);
 			target = 6A00C08D2EA8C12E009B29DF /* Gulgle Extension (macOS) */;
 		};
@@ -141,19 +87,11 @@
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		6A00C04F2EA8C12C009B29DF /* Shared (App) */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
-			exceptions = (
-				6A00C0B22EA8C12E009B29DF /* Exceptions for "Shared (App)" folder in "Gulgle (iOS)" target */,
-				6A00C0BC2EA8C12E009B29DF /* Exceptions for "Shared (App)" folder in "Gulgle (macOS)" target */,
-			);
 			path = "Shared (App)";
 			sourceTree = "<group>";
 		};
 		6A00C0582EA8C12E009B29DF /* Shared (Extension) */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
-			exceptions = (
-				6A00C0C52EA8C12E009B29DF /* Exceptions for "Shared (Extension)" folder in "Gulgle Extension (iOS)" target */,
-				6A00C0C62EA8C12E009B29DF /* Exceptions for "Shared (Extension)" folder in "Gulgle Extension (macOS)" target */,
-			);
 			explicitFolders = (
 				Resources/_locales,
 				Resources/images,
@@ -266,6 +204,7 @@
 				6A00C0872EA8C12E009B29DF /* PBXTargetDependency */,
 			);
 			fileSystemSynchronizedGroups = (
+				6A00C04F2EA8C12C009B29DF /* Shared (App) */,
 				6A00C0692EA8C12E009B29DF /* iOS (App) */,
 			);
 			name = "Gulgle (iOS)";
@@ -290,6 +229,7 @@
 				6A00C0912EA8C12E009B29DF /* PBXTargetDependency */,
 			);
 			fileSystemSynchronizedGroups = (
+				6A00C04F2EA8C12C009B29DF /* Shared (App) */,
 				6A00C07A2EA8C12E009B29DF /* macOS (App) */,
 			);
 			name = "Gulgle (macOS)";
@@ -312,6 +252,7 @@
 			dependencies = (
 			);
 			fileSystemSynchronizedGroups = (
+				6A00C0582EA8C12E009B29DF /* Shared (Extension) */,
 				6A00C0882EA8C12E009B29DF /* iOS (Extension) */,
 			);
 			name = "Gulgle Extension (iOS)";
@@ -334,6 +275,7 @@
 			dependencies = (
 			);
 			fileSystemSynchronizedGroups = (
+				6A00C0582EA8C12E009B29DF /* Shared (Extension) */,
 				6A00C0922EA8C12E009B29DF /* macOS (Extension) */,
 			);
 			name = "Gulgle Extension (macOS)";

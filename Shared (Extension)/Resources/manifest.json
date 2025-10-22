@@ -29,5 +29,9 @@
         "default_icon": "images/toolbar-icon.svg"
     },
 
-    "permissions": [ ]
+    "permissions": [
+        "webNavigation",
+        "tabs",
+        "nativeMessaging"
+    ]
 }
