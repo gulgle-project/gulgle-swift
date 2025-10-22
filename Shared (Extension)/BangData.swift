@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Bang: Codable {
+struct Bang: Codable, Equatable {
     let trigger: String
     let name: String
     let urlTemplate: String
@@ -28,6 +28,10 @@ struct Bang: Codable {
             triggers.append(contentsOf: additional)
         }
         return triggers
+    }
+    
+    static func == (lhs: Bang, rhs: Bang) -> Bool {
+        lhs.trigger == rhs.trigger
     }
 }
 
