@@ -18,10 +18,10 @@ enum SearchEngine {
 }
 
 struct SearchEngineDetector {
-    
+
     static func detectEngine(from url: URL) -> SearchEngine? {
         guard let host = url.host?.lowercased() else { return nil }
-        
+
         if host.contains("google.") {
             return .google
         } else if host.contains("duckduckgo.com") {
@@ -35,16 +35,16 @@ struct SearchEngineDetector {
         } else if host.contains("startpage.com") {
             return .startpage
         }
-        
+
         return nil
     }
-    
+
     static func extractQuery(from url: URL, engine: SearchEngine) -> String? {
         guard let components = URLComponents(url: url, resolvingAgainstBaseURL: false),
               let queryItems = components.queryItems else {
             return nil
         }
-        
+
         let queryParam: String
         switch engine {
         case .google:
@@ -62,15 +62,15 @@ struct SearchEngineDetector {
         case .unknown:
             return nil
         }
-        
+
         return queryItems.first(where: { $0.name == queryParam })?.value
     }
-    
+
     static func isSafariSearch(url: URL, engine: SearchEngine) -> Bool {
         guard let components = URLComponents(url: url, resolvingAgainstBaseURL: false) else {
             return false
         }
-        
+
         switch engine {
         case .google:
             return components.queryItems?.contains(where: { $0.name == "client" && $0.value == "safari" }) ?? false

@@ -9,9 +9,9 @@ import Foundation
 
 class BangRepository {
     static let shared = BangRepository()
-    
+
     private init() {}
-    
+
     func loadBangs() -> [Bang] {
         guard let url = Bundle.main.url(forResource: "bangs", withExtension: "json"),
               let data = try? Data(contentsOf: url),
@@ -20,8 +20,8 @@ class BangRepository {
         }
         return bangs
     }
-    
+
     func updateBangs(_ bangs: [Bang]) {
-        
+
     }
 }

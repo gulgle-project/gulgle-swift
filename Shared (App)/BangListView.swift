@@ -10,7 +10,7 @@ import Combine
 
 struct BangListView: View {
     @StateObject private var viewModel = BangListViewModel()
-    
+
     var body: some View {
         NavigationView {
             VStack {
@@ -19,7 +19,7 @@ struct BangListView: View {
                     .textFieldStyle(RoundedBorderTextFieldStyle())
                     .padding()
                 #endif
-                
+
                 if viewModel.isLoading {
                     ProgressView("Loading bangs...")
                         .frame(maxWidth: .infinity, maxHeight: .infinity)
@@ -49,7 +49,7 @@ struct BangListView: View {
 
 struct BangRowView: View {
     let bang: Bang
-    
+
     var body: some View {
         VStack(alignment: .leading, spacing: 4) {
             HStack {
@@ -57,24 +57,24 @@ struct BangRowView: View {
                     .font(.system(.body, design: .monospaced))
                     .fontWeight(.bold)
                     .foregroundColor(.blue)
-                
+
                 if let additionalTriggers = bang.additionalTriggers, !additionalTriggers.isEmpty {
                     Text("(\(additionalTriggers.map { "!\($0)" }.joined(separator: ", ")))")
                         .font(.caption)
                         .foregroundColor(.secondary)
                 }
-                
+
                 Spacer()
-                
+
                 Text(bang.domain)
                     .font(.caption)
                     .foregroundColor(.secondary)
             }
-            
+
             Text(bang.name)
                 .font(.subheadline)
                 .foregroundColor(.primary)
-            
+
             Text(bang.urlTemplate)
                 .font(.caption)
                 .foregroundColor(.secondary)
@@ -94,26 +94,26 @@ class BangListViewModel: ObservableObject {
     @Published var searchText: String = ""
     @Published var allBangs: [BangItem] = []
     @Published var isLoading: Bool = true
-    
+
     var filteredBangs: [BangItem] {
         guard !searchText.isEmpty else { return allBangs }
-        
+
         let lowercasedSearch = searchText.lowercased()
         return allBangs.filter { bangItem in
             let bang = bangItem.bang
-            
+
             if bang.trigger.lowercased().contains(lowercasedSearch) { return true }
             if bang.name.lowercased().contains(lowercasedSearch) { return true }
             if bang.domain.lowercased().contains(lowercasedSearch) { return true }
-            
+
             if let additionalTriggers = bang.additionalTriggers {
                 return additionalTriggers.contains { $0.lowercased().contains(lowercasedSearch) }
             }
-            
+
             return false
         }
     }
-    
+
     func loadBangs() {
         DispatchQueue.global(qos: .userInitiated).async {
             guard let url = Bundle.main.url(forResource: "bangs", withExtension: "json"),
@@ -124,9 +124,9 @@ class BangListViewModel: ObservableObject {
                 }
                 return
             }
-            
+
             let bangItems = bangs.map { BangItem(bang: $0) }
-            
+
             DispatchQueue.main.async {
                 self.allBangs = bangItems
                 self.isLoading = false
