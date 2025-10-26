@@ -54,6 +54,7 @@ struct BangListView: View {
         }
         .sheet(isPresented: $showingAdd) {
             BangAddView {
+                viewModel.loadBangs()
                 showingAdd = false
             }
         }
@@ -157,16 +158,6 @@ class BangListViewModel: ObservableObject {
                 self.allBangs = bangItems
                 self.isLoading = false
             }
-        }
-    }
-
-    func addCustom(bang: Bang) {
-        do {
-            try BangRepository.shared.addOrUpdateCustomBang(bang)
-            loadBangs()
-        } catch {
-            // In production, show an alert. For now, just reload to reflect no change.
-            loadBangs()
         }
     }
 
