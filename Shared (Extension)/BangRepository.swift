@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import os.log
 
 class BangRepository {
     static let shared = BangRepository()
@@ -58,6 +59,7 @@ class BangRepository {
             return try JSONDecoder().decode([Bang].self, from: data)
         } catch {
             // If decoding fails, return empty rather than crashing
+            os_log(.error, "Unable to decode stored bangs!")
             return []
         }
     }
@@ -69,7 +71,7 @@ class BangRepository {
             let data = try JSONEncoder().encode(bangs)
             try data.write(to: url, options: [.atomic])
         } catch {
-            // Swallow errors in extension context; optionally add logging
+            os_log(.error, "Error saving custom bang file!")
         }
     }
 
@@ -78,11 +80,13 @@ class BangRepository {
         try validate(bang: bang)
 
         var custom = loadCustomBangs()
+        // Exclude the bang being updated from collision check
+        let customExcludingCurrent = custom.filter { $0.trigger.caseInsensitiveCompare(bang.trigger) != .orderedSame }
+        // Prevent conflicts with existing custom triggers (including additionalTriggers)
+        try ensureNoTriggerCollision(newBang: bang, within: customExcludingCurrent)
         if let idx = custom.firstIndex(where: { $0.trigger.caseInsensitiveCompare(bang.trigger) == .orderedSame }) {
             custom[idx] = bang
         } else {
-            // Prevent conflicts with existing custom triggers (including additionalTriggers)
-            try ensureNoTriggerCollision(newBang: bang, within: custom)
             custom.append(bang)
         }
         saveCustomBangs(custom)
@@ -188,4 +192,3 @@ class BangRepository {
         bumpVersion()
     }
 }
-

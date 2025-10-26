@@ -17,7 +17,7 @@ struct BangAddView: View {
     @State private var additional: String = "" // comma-separated
     @State private var error: String?
 
-    let onSave: (Bang) -> Void
+    let onSaved: () -> Void
 
     var body: some View {
         NavigationStack {
@@ -67,7 +67,7 @@ struct BangAddView: View {
                             )
                             // Local validation using repository’s rules
                             try BangRepository.shared.addOrUpdateCustomBang(newBang)
-                            onSave(newBang)
+                            onSaved()
                         } catch {
                             self.error = "Invalid input or trigger conflict. Ensure trigger is alphanumeric and URL template contains %s or {{{s}}}."
                         }
@@ -79,9 +79,7 @@ struct BangAddView: View {
     }
 }
 
-
 #Preview {
-    BangAddView { newBang in
-        print(newBang)
+    BangAddView {
     }
 }
