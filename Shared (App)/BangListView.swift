@@ -53,8 +53,7 @@ struct BangListView: View {
             viewModel.loadBangs()
         }
         .sheet(isPresented: $showingAdd) {
-            BangAddView { newBang in
-                viewModel.addCustom(bang: newBang)
+            BangAddView {
                 showingAdd = false
             }
         }
@@ -113,6 +112,26 @@ class BangListViewModel: ObservableObject {
         guard !searchText.isEmpty else { return allBangs }
 
         let lowercasedSearch = searchText.lowercased()
+
+        if searchText.starts(with: "!") {
+            let bangSearch = String(lowercasedSearch.drop(while: { $0 == "!" }))
+
+            if bangSearch.count == 0 {
+                return allBangs
+            }
+
+            return allBangs.filter { bangItem in
+                let bang = bangItem.bang
+
+                if bang.trigger.starts(with: bangSearch) { return true }
+                if let additionalTriggers = bang.additionalTriggers {
+                    return additionalTriggers.contains { $0.starts(with: bangSearch) }
+                }
+
+                return false
+            }
+        }
+
         return allBangs.filter { bangItem in
             let bang = bangItem.bang
 

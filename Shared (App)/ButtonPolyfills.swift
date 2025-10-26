@@ -8,8 +8,8 @@
 import SwiftUI
 
 struct ConfirmButton: View {
-    let function : () -> Void
-    
+    let function: () -> Void
+
     var body: some View {
         if #available(iOS 26.0, macOS 26.0, *) {
             Button(role: .confirm) {
@@ -26,8 +26,8 @@ struct ConfirmButton: View {
 }
 
 struct CloseButton: View {
-    let function : () -> Void
-    
+    let function: () -> Void
+
     var body: some View {
         if #available(iOS 26.0, macOS 26.0, *) {
             Button(role: .close) {
@@ -44,8 +44,8 @@ struct CloseButton: View {
 }
 
 struct CancelButton: View {
-    let function : () -> Void
-    
+    let function: () -> Void
+
     var body: some View {
         if #available(iOS 26.0, macOS 26.0, *) {
             Button(role: .cancel) {
