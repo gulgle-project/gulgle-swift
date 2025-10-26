@@ -18,10 +18,6 @@ struct BangListView: View {
                 if viewModel.isLoading {
                     ProgressView("Loading bangs...")
                         .frame(maxWidth: .infinity, maxHeight: .infinity)
-                } else if viewModel.filteredBangs.isEmpty {
-                    Text(viewModel.searchText.isEmpty ? "No bangs available" : "No results found")
-                        .foregroundColor(.secondary)
-                        .frame(maxWidth: .infinity, maxHeight: .infinity)
                 } else {
                     List {
                         ForEach(viewModel.filteredBangs) { bangItem in
@@ -34,6 +30,13 @@ struct BangListView: View {
                         }
                     }
                     .searchable(text: $viewModel.searchText, prompt: "Search bangs...")
+                    .overlay(Group {
+                        if viewModel.filteredBangs.isEmpty {
+                            Text(viewModel.searchText.isEmpty ? "No bangs available" : "No results found")
+                                .foregroundColor(.secondary)
+                                .frame(maxWidth: .infinity, maxHeight: .infinity)
+                        }
+                    })
                 }
             }
             .navigationTitle("Bangs (\(viewModel.filteredBangs.count))")
