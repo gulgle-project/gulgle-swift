@@ -10,11 +10,31 @@ import os.log
 
 class SafariWebExtensionHandler: NSObject, NSExtensionRequestHandling {
 
-    private lazy var bangParser: BangParser = {
-        let bangs = BangRepository.shared.loadBangs()
-        os_log(.default, "Loaded %d bangs", bangs.count)
-        return BangParser(bangs: bangs)
-    }()
+    // MARK: - Parser Cache
+
+    private var cachedParser: BangParser?
+    private var cachedVersion: Int = -1
+    private let cacheQueue = DispatchQueue(label: "link.gulgle.Gulgle.ParserCache")
+
+    // Returns a parser built for the current repository version, rebuilding only if needed.
+    private func makeParser() -> BangParser {
+        let currentVersion = BangRepository.shared.currentVersion()
+
+        // Fast path: return cached if versions match.
+        // Guarded by a serial queue for thread safety.
+        return cacheQueue.sync {
+            if let parser = cachedParser, cachedVersion == currentVersion {
+                return parser
+            }
+
+            let bangs = BangRepository.shared.loadBangs()
+            os_log(.default, "Loaded %d bangs (rebuilding parser, version %d -> %d)", bangs.count, cachedVersion, currentVersion)
+            let newParser = BangParser(bangs: bangs)
+            cachedParser = newParser
+            cachedVersion = currentVersion
+            return newParser
+        }
+    }
 
     func beginRequest(with context: NSExtensionContext) {
         let request = context.inputItems.first as? NSExtensionItem
@@ -64,6 +84,8 @@ class SafariWebExtensionHandler: NSObject, NSExtensionRequestHandling {
         }
 
         os_log(.default, "Detected search query: %@", query)
+
+        let bangParser = makeParser()
 
         if let bangMatch = bangParser.parseBang(from: query) {
             let redirectURL = bangParser.buildRedirectURL(for: bangMatch)

@@ -10,16 +10,11 @@ import Combine
 
 struct BangListView: View {
     @StateObject private var viewModel = BangListViewModel()
+    @State private var showingAdd = false
 
     var body: some View {
-        NavigationView {
+        NavigationStack {
             VStack {
-                #if os(macOS)
-                TextField("Search bangs...", text: $viewModel.searchText)
-                    .textFieldStyle(RoundedBorderTextFieldStyle())
-                    .padding()
-                #endif
-
                 if viewModel.isLoading {
                     ProgressView("Loading bangs...")
                         .frame(maxWidth: .infinity, maxHeight: .infinity)
@@ -28,21 +23,37 @@ struct BangListView: View {
                         .foregroundColor(.secondary)
                         .frame(maxWidth: .infinity, maxHeight: .infinity)
                 } else {
-                    List(viewModel.filteredBangs) { bangItem in
-                        BangRowView(bang: bangItem.bang)
+                    List {
+                        ForEach(viewModel.filteredBangs) { bangItem in
+                            BangRowView(bang: bangItem.bang)
+                                .contextMenu {
+                                    Button("Delete Custom Bang") {
+                                        viewModel.deleteIfCustom(bangItem.bang)
+                                    }
+                                }
+                        }
                     }
-                    #if os(iOS)
                     .searchable(text: $viewModel.searchText, prompt: "Search bangs...")
-                    #endif
                 }
             }
             .navigationTitle("Bangs (\(viewModel.filteredBangs.count))")
-            #if os(macOS)
-            .frame(minWidth: 600, minHeight: 400)
-            #endif
+            .toolbar {
+                Button {
+                    showingAdd = true
+                } label: {
+                    Image(systemName: "plus")
+                }
+                .help("Add Custom Bang")
+            }
         }
         .onAppear {
             viewModel.loadBangs()
+        }
+        .sheet(isPresented: $showingAdd) {
+            BangAddView { newBang in
+                viewModel.addCustom(bang: newBang)
+                showingAdd = false
+            }
         }
     }
 }
@@ -115,22 +126,34 @@ class BangListViewModel: ObservableObject {
     }
 
     func loadBangs() {
+        isLoading = true
         DispatchQueue.global(qos: .userInitiated).async {
-            guard let url = Bundle.main.url(forResource: "bangs", withExtension: "json"),
-                  let data = try? Data(contentsOf: url),
-                  let bangs = try? JSONDecoder().decode([Bang].self, from: data) else {
-                DispatchQueue.main.async {
-                    self.isLoading = false
-                }
-                return
-            }
-
+            let bangs = BangRepository.shared.loadBangs()
             let bangItems = bangs.map { BangItem(bang: $0) }
 
             DispatchQueue.main.async {
                 self.allBangs = bangItems
                 self.isLoading = false
             }
+        }
+    }
+
+    func addCustom(bang: Bang) {
+        do {
+            try BangRepository.shared.addOrUpdateCustomBang(bang)
+            loadBangs()
+        } catch {
+            // In production, show an alert. For now, just reload to reflect no change.
+            loadBangs()
+        }
+    }
+
+    func deleteIfCustom(_ bang: Bang) {
+        // Only delete if it exists in custom store (not built-in).
+        let custom = BangRepository.shared.loadCustomBangs()
+        if custom.contains(where: { $0.trigger.caseInsensitiveCompare(bang.trigger) == .orderedSame }) {
+            BangRepository.shared.deleteCustomBang(withTrigger: bang.trigger)
+            loadBangs()
         }
     }
 }
