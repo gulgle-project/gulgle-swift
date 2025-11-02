@@ -61,9 +61,12 @@ struct BangAddView: View {
                             let newBang = Bang(
                                 trigger: trigger.trimmingCharacters(in: .whitespacesAndNewlines),
                                 name: name.trimmingCharacters(in: .whitespacesAndNewlines),
+                                category: "",
+                                subCategory: "",
                                 urlTemplate: urlTemplate.trimmingCharacters(in: .whitespacesAndNewlines),
                                 domain: domain.trimmingCharacters(in: .whitespacesAndNewlines),
-                                additionalTriggers: extras.isEmpty ? nil : extras
+                                additionalTriggers: extras.isEmpty ? nil : extras,
+                                isCustom: true
                             )
                             // Local validation using repository’s rules
                             try BangRepository.shared.addOrUpdateCustomBang(newBang)

@@ -21,12 +21,15 @@ struct BangListView: View {
                 } else {
                     List {
                         ForEach(viewModel.filteredBangs) { bangItem in
-                            BangRowView(bang: bangItem.bang)
-                                .contextMenu {
-                                    Button("Delete Custom Bang") {
-                                        viewModel.deleteIfCustom(bangItem.bang)
-                                    }
+                            NavigationLink {
+                                if bangItem.bang.isCustom ?? false {
+                                    CustomBangDetails(bang: bangItem.bang)
+                                } else {
+                                    BuiltinBangDetails(bang: bangItem.bang)
                                 }
+                            } label: {
+                                BangRowView(bang: bangItem.bang)
+                            }
                         }
                     }
                     .searchable(text: $viewModel.searchText, prompt: "Search bangs...")
@@ -158,15 +161,6 @@ class BangListViewModel: ObservableObject {
                 self.allBangs = bangItems
                 self.isLoading = false
             }
-        }
-    }
-
-    func deleteIfCustom(_ bang: Bang) {
-        // Only delete if it exists in custom store (not built-in).
-        let custom = BangRepository.shared.loadCustomBangs()
-        if custom.contains(where: { $0.trigger.caseInsensitiveCompare(bang.trigger) == .orderedSame }) {
-            BangRepository.shared.deleteCustomBang(withTrigger: bang.trigger)
-            loadBangs()
         }
     }
 }

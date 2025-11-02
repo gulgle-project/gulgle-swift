@@ -10,16 +10,22 @@ import Foundation
 struct Bang: Codable, Equatable {
     let trigger: String
     let name: String
+    let category: String?
+    let subCategory: String?
     let urlTemplate: String
     let domain: String
     let additionalTriggers: [String]?
+    let isCustom: Bool?
 
     enum CodingKeys: String, CodingKey {
         case trigger = "t"
         case name = "s"
+        case category = "c"
+        case subCategory = "sc"
         case urlTemplate = "u"
         case domain = "d"
         case additionalTriggers = "ts"
+        case isCustom = "ic"
     }
 
     func allTriggers() -> [String] {

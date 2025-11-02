@@ -105,11 +105,17 @@ class BangRepository {
 
     private func loadBuiltInBangs() -> [Bang] {
         guard let url = Bundle.main.url(forResource: "bangs", withExtension: "json"),
-              let data = try? Data(contentsOf: url),
-              let bangs = try? JSONDecoder().decode([Bang].self, from: data) else {
+              let data = try? Data(contentsOf: url) else {
+            os_log(.error, "Did not find data")
             return []
         }
-        return bangs
+
+        do {
+            return try JSONDecoder().decode([Bang].self, from: data)
+        } catch {
+            os_log(.error, "Error decoding built-in bangs: \(error)")
+            return []
+        }
     }
 
     private func customBangsURL() -> URL? {
