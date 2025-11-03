@@ -27,11 +27,7 @@ struct BangListView: View {
                         }
                         ForEach(viewModel.filteredBangs) { bangItem in
                             NavigationLink {
-                                if bangItem.bang.isCustom ?? false {
-                                    CustomBangDetails(bang: bangItem.bang)
-                                } else {
-                                    BuiltinBangDetails(bang: bangItem.bang)
-                                }
+                                BangDetails(bang: bangItem.bang)
                             } label: {
                                 BangRowView(bang: bangItem.bang)
                             }
@@ -69,42 +65,8 @@ struct BangListView: View {
     }
 }
 
-struct BangRowView: View {
-    let bang: Bang
-
-    var body: some View {
-        VStack(alignment: .leading, spacing: 4) {
-            HStack {
-                Text("!\(bang.trigger)")
-                    .font(.system(.body, design: .monospaced))
-                    .fontWeight(.bold)
-                    .foregroundColor(.blue)
-
-                if let additionalTriggers = bang.additionalTriggers, !additionalTriggers.isEmpty {
-                    Text("(\(additionalTriggers.map { "!\($0)" }.joined(separator: ", ")))")
-                        .font(.caption)
-                        .foregroundColor(.secondary)
-                }
-
-                Spacer()
-
-                Text(bang.domain)
-                    .font(.caption)
-                    .foregroundColor(.secondary)
-            }
-
-            Text(bang.name)
-                .font(.subheadline)
-                .foregroundColor(.primary)
-
-            Text(bang.urlTemplate)
-                .font(.caption)
-                .foregroundColor(.secondary)
-                .lineLimit(1)
-                .truncationMode(.middle)
-        }
-        .padding(.vertical, 4)
-    }
+#Preview {
+    BangListView()
 }
 
 struct BangItem: Identifiable, Equatable {
@@ -120,10 +82,10 @@ class BangListViewModel: ObservableObject {
 
     var filteredBangs: [BangItem] {
         var filtered = allBangs
-        if (showCustomOnly) {
+        if showCustomOnly {
             filtered = allBangs.filter { $0.bang.isCustom ?? false }
         }
-        
+
         guard !searchText.isEmpty else { return filtered }
 
         let lowercasedSearch = searchText.lowercased()

@@ -95,10 +95,11 @@ class BangParser {
     func buildRedirectURL(for match: BangMatch) -> String {
         let encodedQuery = match.query.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? match.query
         let template = match.bang.urlTemplate
-        if template.contains("{{{s}}}") {
-            return template.replacingOccurrences(of: "{{{s}}}", with: encodedQuery)
-        } else {
+        if template.contains("%s") {
             return template.replacingOccurrences(of: "%s", with: encodedQuery)
+        } else {
+            // Fallback for legacy system
+            return template.replacingOccurrences(of: "{{{s}}}", with: encodedQuery)
         }
     }
 }

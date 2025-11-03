@@ -139,7 +139,7 @@ class BangRepository {
             throw ValidationError.invalidDomain
         }
         let template = bang.urlTemplate
-        guard template.contains("%s") || template.contains("{{{s}}}") else {
+        guard template.contains("%s") else {
             throw ValidationError.invalidTemplate
         }
         // Optional: restrict trigger charset to alphanumerics

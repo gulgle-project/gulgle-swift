@@ -18,7 +18,7 @@ struct TemplateWithHighlight: View {
         let components = templateUrl.components(separatedBy: "%s")
         if components.count == 1 {
             Text(templateUrl)
-                .font(.system(.body, design: .monospaced))
+                .font(.system(.footnote, design: .monospaced))
         } else {
             let before = components[0]
             let after = components.dropFirst().joined(separator: "%s")

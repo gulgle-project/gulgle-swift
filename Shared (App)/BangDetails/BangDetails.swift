@@ -1,13 +1,13 @@
 //
-//  CustomBangDetails.swift
+//  BangDetails.swift
 //  Gulgle
 //
-//  Created by Wolfgang Schwendtbauer on 02.11.25.
+//  Created by Wolfgang Schwendtbauer on 03.11.25.
 //
 
 import SwiftUI
 
-struct CustomBangDetails: View {
+struct BangDetails: View {
     var bang: Bang
 
     @State private var showingDeleteConfirmation = false
@@ -50,15 +50,30 @@ struct CustomBangDetails: View {
                         Text(bang.domain)
                     }
                 }
+                if let category = bang.category {
+                    HStack {
+                        Text("Category")
+                        Spacer()
+                        HStack(spacing: 4) {
+                            Text(category)
+                            if let subCategory = bang.subCategory {
+                                Text("/")
+                                Text(subCategory)
+                            }
+                        }
+                    }
+                }
                 VStack(alignment: .leading, spacing: 8) {
                     Text("Template")
                     TemplateWithHighlight(bang.urlTemplate)
                 }
             }
 
-            Section(header: Text("Actions")) {
-                Button("Delete", role: .destructive) {
-                    showingDeleteConfirmation = true
+            if bang.isCustom == true {
+                Section(header: Text("Actions")) {
+                    Button("Delete", role: .destructive) {
+                        showingDeleteConfirmation = true
+                    }
                 }
             }
         }
@@ -75,8 +90,22 @@ struct CustomBangDetails: View {
     }
 }
 
-#Preview {
-    let bang = Bang(
+#Preview("Builtin Bang") {
+    let builtinBang = Bang(
+        trigger: "g",
+        name: "Google",
+        category: "Online Services",
+        subCategory: "Search",
+        urlTemplate: "https://google.com?q=%s",
+        domain: "google.com",
+        additionalTriggers: ["go", "goog", "google"],
+        isCustom: false)
+
+    BangDetails(bang: builtinBang)
+}
+
+#Preview("Custom Bang") {
+    let customBang = Bang(
         trigger: "g",
         name: "Gulgle",
         category: "Online Services",
@@ -84,7 +113,7 @@ struct CustomBangDetails: View {
         urlTemplate: "https://gulgle.link?q=%s",
         domain: "gulgle.link",
         additionalTriggers: ["gu", "guldner"],
-        isCustom: false)
+        isCustom: true)
 
-    CustomBangDetails(bang: bang)
+    BangDetails(bang: customBang)
 }

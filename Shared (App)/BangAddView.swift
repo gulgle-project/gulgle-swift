@@ -83,7 +83,7 @@ struct BangAddView: View {
                             try BangRepository.shared.addOrUpdateCustomBang(newBang)
                             onSaved()
                         } catch {
-                            self.error = "Invalid input or trigger conflict. Ensure trigger is alphanumeric and URL template contains %s or {{{s}}}."
+                            self.error = "Invalid input or trigger conflict. Ensure trigger is alphanumeric and URL template contains '%s'."
                         }
                     }
                     .disabled(trigger.isEmpty || name.isEmpty || domain.isEmpty || urlTemplate.isEmpty)
