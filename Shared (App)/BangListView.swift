@@ -20,6 +20,11 @@ struct BangListView: View {
                         .frame(maxWidth: .infinity, maxHeight: .infinity)
                 } else {
                     List {
+                        Section {
+                            Toggle(isOn: $viewModel.showCustomOnly) {
+                                Text("Show only custom bangs")
+                            }
+                        }
                         ForEach(viewModel.filteredBangs) { bangItem in
                             NavigationLink {
                                 if bangItem.bang.isCustom ?? false {
@@ -111,9 +116,15 @@ class BangListViewModel: ObservableObject {
     @Published var searchText: String = ""
     @Published var allBangs: [BangItem] = []
     @Published var isLoading: Bool = true
+    @Published var showCustomOnly: Bool = false
 
     var filteredBangs: [BangItem] {
-        guard !searchText.isEmpty else { return allBangs }
+        var filtered = allBangs
+        if (showCustomOnly) {
+            filtered = allBangs.filter { $0.bang.isCustom ?? false }
+        }
+        
+        guard !searchText.isEmpty else { return filtered }
 
         let lowercasedSearch = searchText.lowercased()
 
@@ -121,10 +132,10 @@ class BangListViewModel: ObservableObject {
             let bangSearch = String(lowercasedSearch.drop(while: { $0 == "!" }))
 
             if bangSearch.count == 0 {
-                return allBangs
+                return filtered
             }
 
-            return allBangs.filter { bangItem in
+            return filtered.filter { bangItem in
                 let bang = bangItem.bang
 
                 if bang.trigger.starts(with: bangSearch) { return true }
@@ -136,7 +147,7 @@ class BangListViewModel: ObservableObject {
             }
         }
 
-        return allBangs.filter { bangItem in
+        return filtered.filter { bangItem in
             let bang = bangItem.bang
 
             if bang.trigger.lowercased().contains(lowercasedSearch) { return true }

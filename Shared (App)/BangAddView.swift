@@ -12,6 +12,8 @@ struct BangAddView: View {
 
     @State private var trigger: String = ""
     @State private var name: String = ""
+    @State private var category: String = ""
+    @State private var subCategory: String = ""
     @State private var urlTemplate: String = ""
     @State private var domain: String = ""
     @State private var additional: String = "" // comma-separated
@@ -25,9 +27,18 @@ struct BangAddView: View {
                 Section {
                     LabeledContent("Trigger") {
                         TextField("g", text: $trigger)
+                        #if os(iOS)
+                            .textInputAutocapitalization(.never)
+                        #endif
                     }
                     LabeledContent("Name") {
                         TextField("Google", text: $name)
+                    }
+                    LabeledContent("Category") {
+                        TextField("Services", text: $category)
+                    }
+                    LabeledContent("Subcategory") {
+                        TextField("Search", text: $subCategory)
                     }
                     LabeledContent("Domain") {
                         TextField("google.com", text: $domain)
@@ -59,10 +70,10 @@ struct BangAddView: View {
                                 .filter { !$0.isEmpty }
 
                             let newBang = Bang(
-                                trigger: trigger.trimmingCharacters(in: .whitespacesAndNewlines),
+                                trigger: trigger.trimmingCharacters(in: .whitespacesAndNewlines).lowercased(),
                                 name: name.trimmingCharacters(in: .whitespacesAndNewlines),
-                                category: "",
-                                subCategory: "",
+                                category: category.trimmingCharacters(in: .whitespacesAndNewlines),
+                                subCategory: subCategory.trimmingCharacters(in: .whitespacesAndNewlines),
                                 urlTemplate: urlTemplate.trimmingCharacters(in: .whitespacesAndNewlines),
                                 domain: domain.trimmingCharacters(in: .whitespacesAndNewlines),
                                 additionalTriggers: extras.isEmpty ? nil : extras,
