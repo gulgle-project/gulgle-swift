@@ -82,7 +82,7 @@ class BangParser {
                     let fullMatchRange = match.range
                     var query = searchQuery
                     query.removeSubrange(Range(fullMatchRange, in: query)!)
-                    query = query.trimmingCharacters(in: .whitespaces)
+                    query = query.trimmingCharacters(in: .whitespacesAndNewlines)
 
                     return BangMatch(bang: bang, query: query, matchedTrigger: trigger)
                 }
