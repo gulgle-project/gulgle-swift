@@ -1,6 +1,6 @@
 {
   "fill" : {
-    "automatic-gradient" : "display-p3:0.11864,0.11864,0.11864,1.00000"
+    "automatic-gradient" : "display-p3:0.85801,0.85801,0.85801,1.00000"
   },
   "groups" : [
     {
@@ -10,7 +10,7 @@
           "fill-specializations" : [
             {
               "value" : {
-                "automatic-gradient" : "display-p3:1.00000,1.00000,1.00000,1.00000"
+                "automatic-gradient" : "display-p3:0.00000,0.00000,0.00000,1.00000"
               }
             },
             {
