@@ -21,7 +21,9 @@
             },
             {
               "appearance" : "tinted",
-              "value" : "automatic"
+              "value" : {
+                "automatic-gradient" : "display-p3:0.96611,0.93433,0.94812,1.00000"
+              }
             }
           ],
           "glass" : true,
