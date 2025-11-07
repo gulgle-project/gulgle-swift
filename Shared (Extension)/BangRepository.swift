@@ -104,7 +104,7 @@ class BangRepository {
     // MARK: - Internal
 
     private func loadBuiltInBangs() -> [Bang] {
-        guard let url = Bundle.main.url(forResource: "bangs", withExtension: "json"),
+        guard let url = Bundle.main.url(forResource: "kagi-bangs", withExtension: "json"),
               let data = try? Data(contentsOf: url) else {
             os_log(.error, "Did not find data")
             return []

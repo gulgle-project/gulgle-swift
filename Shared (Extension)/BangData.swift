@@ -20,12 +20,12 @@ struct Bang: Codable, Equatable {
     enum CodingKeys: String, CodingKey {
         case trigger = "t"
         case name = "s"
-        case category = "c"
-        case subCategory = "sc"
+        case category = "cat"
+        case subCategory = "subCat"
         case urlTemplate = "u"
         case domain = "d"
         case additionalTriggers = "ts"
-        case isCustom = "ic"
+        case isCustom = "c"
     }
 
     func allTriggers() -> [String] {
