@@ -50,13 +50,13 @@ struct BangDetails: View {
                         Text(bang.domain)
                     }
                 }
-                if let category = bang.category {
+                if let category = bang.category, !category.isEmpty {
                     HStack {
                         Text("Category")
                         Spacer()
                         HStack(spacing: 4) {
                             Text(category)
-                            if let subCategory = bang.subCategory {
+                            if let subCategory = bang.subCategory, !subCategory.isEmpty {
                                 Text("/")
                                 Text(subCategory)
                             }
