@@ -12,6 +12,12 @@ struct BangListView: View {
     @StateObject private var viewModel = BangListViewModel()
     @State private var showingAdd = false
 
+    // Auth + Sync
+    @StateObject private var auth = AuthManager.shared
+    @State private var isPerformingAuth = false
+    @State private var isSyncing = false
+    @State private var alertMessage: String?
+
     var body: some View {
         NavigationStack {
             VStack {
@@ -23,6 +29,28 @@ struct BangListView: View {
                         Section {
                             Toggle(isOn: $viewModel.showCustomOnly) {
                                 Text("Show only custom bangs")
+                            }
+                        }
+                        if auth.isAuthenticated {
+                            Section {
+                                HStack {
+                                    Image(systemName: "person.crop.circle.fill")
+                                        .foregroundColor(.accentColor)
+                                    Text("Signed in")
+                                    Spacer()
+                                    Button {
+                                        Task { await runPull() }
+                                    } label: {
+                                        Label("Pull", systemImage: "arrow.down.circle")
+                                    }
+                                    .disabled(isSyncing)
+                                    Button {
+                                        Task { await runPush() }
+                                    } label: {
+                                        Label("Push", systemImage: "arrow.up.circle")
+                                    }
+                                    .disabled(isSyncing)
+                                }
                             }
                         }
                         ForEach(viewModel.filteredBangs) { bangItem in
@@ -45,12 +73,35 @@ struct BangListView: View {
             }
             .navigationTitle("Bangs (\(viewModel.filteredBangs.count))")
             .toolbar {
-                Button {
-                    showingAdd = true
-                } label: {
-                    Image(systemName: "plus")
+                ToolbarItemGroup {
+                    if auth.isAuthenticated {
+                        Button(role: .destructive) {
+                            auth.logout()
+                        } label: {
+                            Label("Logout", systemImage: "rectangle.portrait.and.arrow.right")
+                        }
+                        .help("Sign out")
+                    } else {
+                        Button {
+                            Task { await runLogin() }
+                        } label: {
+                            if isPerformingAuth {
+                                ProgressView()
+                            } else {
+                                Label("Login", systemImage: "person.badge.key")
+                            }
+                        }
+                        .disabled(isPerformingAuth)
+                        .help("Sign in with GitHub")
+                    }
+
+                    Button {
+                        showingAdd = true
+                    } label: {
+                        Image(systemName: "plus")
+                    }
+                    .help("Add Custom Bang")
                 }
-                .help("Add Custom Bang")
             }
         }
         .onAppear {
@@ -62,7 +113,68 @@ struct BangListView: View {
                 showingAdd = false
             }
         }
+        .alert(item: Binding(
+            get: {
+                alertMessage.map { AlertItem(message: $0) }
+            },
+            set: { newValue in
+                alertMessage = newValue?.message
+            }
+        )) { item in
+            Alert(title: Text("Info"), message: Text(item.message), dismissButton: .default(Text("OK")))
+        }
     }
+
+    // MARK: - Actions
+
+    private func runLogin() async {
+        isPerformingAuth = true
+        defer { isPerformingAuth = false }
+        do {
+            try await auth.login()
+        } catch let error as AuthManager.AuthError {
+            switch error {
+            case .cancelled:
+                break
+            default:
+                alertMessage = "Login failed: \(error)"
+            }
+        } catch {
+            alertMessage = "Login failed: \(error.localizedDescription)"
+        }
+    }
+
+    private func runPull() async {
+        isSyncing = true
+        defer { isSyncing = false }
+        do {
+            try await SyncService.shared.pull()
+            viewModel.loadBangs()
+            alertMessage = "Pulled settings successfully."
+        } catch let e as SyncError {
+            alertMessage = e.localizedDescription
+        } catch {
+            alertMessage = "Pull failed: \(error.localizedDescription)"
+        }
+    }
+
+    private func runPush() async {
+        isSyncing = true
+        defer { isSyncing = false }
+        do {
+            try await SyncService.shared.push()
+            alertMessage = "Pushed settings successfully."
+        } catch let e as SyncError {
+            alertMessage = e.localizedDescription
+        } catch {
+            alertMessage = "Push failed: \(error.localizedDescription)"
+        }
+    }
+}
+
+private struct AlertItem: Identifiable {
+    let id = UUID()
+    let message: String
 }
 
 #Preview {
@@ -137,3 +249,4 @@ class BangListViewModel: ObservableObject {
         }
     }
 }
+

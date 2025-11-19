@@ -62,6 +62,7 @@
 		6A64B41E2EABB84D0038729B /* Gulgle (macOS).entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Gulgle (macOS).entitlements"; sourceTree = "<group>"; };
 		6A64B41F2EABB8570038729B /* Gulgle Extension (iOS).entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Gulgle Extension (iOS).entitlements"; sourceTree = "<group>"; };
 		6A64B4202EABB8610038729B /* Gulgle Extension (macOS).entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Gulgle Extension (macOS).entitlements"; sourceTree = "<group>"; };
+		6AD296462EBE3937002BF23D /* Gulgle--macOS--Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "Gulgle--macOS--Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
@@ -169,6 +170,7 @@
 		6A00C04A2EA8C12C009B29DF = {
 			isa = PBXGroup;
 			children = (
+				6AD296462EBE3937002BF23D /* Gulgle--macOS--Info.plist */,
 				6A64B4202EABB8610038729B /* Gulgle Extension (macOS).entitlements */,
 				6A64B41F2EABB8570038729B /* Gulgle Extension (iOS).entitlements */,
 				6A64B41E2EABB84D0038729B /* Gulgle (macOS).entitlements */,
@@ -667,7 +669,7 @@
 				ENABLE_OUTGOING_NETWORK_CONNECTIONS = YES;
 				ENABLE_USER_SELECTED_FILES = readonly;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "";
+				INFOPLIST_FILE = "Gulgle--macOS--Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = Gulgle;
 				INFOPLIST_KEY_ITSAppUsesNonExemptEncryption = NO;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
@@ -712,7 +714,7 @@
 				ENABLE_OUTGOING_NETWORK_CONNECTIONS = YES;
 				ENABLE_USER_SELECTED_FILES = readonly;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "";
+				INFOPLIST_FILE = "Gulgle--macOS--Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = Gulgle;
 				INFOPLIST_KEY_ITSAppUsesNonExemptEncryption = NO;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
