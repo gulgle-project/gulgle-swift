@@ -923,6 +923,15 @@
     "subCat": "Books"
   },
   {
+    "t": "7tv",
+    "s": "7TV",
+    "u": "https://7tv.app/emotes?q=%s",
+    "d": "7tv.app",
+    "ts": [],
+    "cat": "Online Services",
+    "subCat": "Tools"
+  },
+  {
     "t": "800",
     "s": "800notes.com",
     "u": "http://800notes.com/Phone.aspx/%s",
@@ -1567,6 +1576,19 @@
     "ts": [],
     "cat": "Multimedia",
     "subCat": "Images"
+  },
+  {
+    "t": "a.ae",
+    "s": "Amazon UAE",
+    "u": "https://www.amazon.ae/s?k=%s",
+    "d": "www.amazon.ae",
+    "ts": [
+      "amazon_ae",
+      "amazonae",
+      "amazon.ae"
+    ],
+    "cat": "Shopping",
+    "subCat": "Online"
   },
   {
     "t": "aca",
@@ -2905,15 +2927,6 @@
     "subCat": "Online"
   },
   {
-    "t": "aje",
-    "s": "Al Jazeera (English)",
-    "u": "https://www.aljazeera.com/Search/?q=%s",
-    "d": "www.aljazeera.com",
-    "ts": [],
-    "cat": "News",
-    "subCat": "International"
-  },
-  {
     "t": "aj",
     "s": "アマゾン (Amazon Japan)",
     "u": "https://www.amazon.co.jp/s?k=%s",
@@ -3285,15 +3298,6 @@
     "ts": [],
     "cat": "Online Services",
     "subCat": "Tracking"
-  },
-  {
-    "t": "aljazeera",
-    "s": "Aljazeera English",
-    "u": "https://english.aljazeera.net/Services/Search/?q=%s",
-    "d": "english.aljazeera.net",
-    "ts": [],
-    "cat": "News",
-    "subCat": "Aggregators"
   },
   {
     "t": "alko",
@@ -4805,7 +4809,7 @@
   {
     "t": "ap",
     "s": "AP",
-    "u": "https://ap.org/Search/SearchResults?searchkeywords=%s",
+    "u": "https://ap.org/?s=%s&orderby=",
     "d": "ap.org",
     "ts": [],
     "cat": "News",
@@ -9120,6 +9124,15 @@
     "ts": [],
     "cat": "Entertainment",
     "subCat": "TV"
+  },
+  {
+    "t": "bttv",
+    "s": "BetterTTV",
+    "u": "https://betterttv.com/emotes/shared/search?query=%s",
+    "d": "betterttv.com",
+    "ts": [],
+    "cat": "Online Services",
+    "subCat": "Tools"
   },
   {
     "t": "betterworldbooks",
@@ -14581,6 +14594,17 @@
     "u": "https://openrouter.ai/models?q=%s",
     "d": "openrouter.ai",
     "ts": [],
+    "cat": "Online Services",
+    "subCat": "AI Chatbots"
+  },
+  {
+    "t": "gai",
+    "s": "Google AI Mode",
+    "u": "https://www.google.com/search?q=%s&udm=50",
+    "d": "www.google.com",
+    "ts": [
+      "googleai"
+    ],
     "cat": "Online Services",
     "subCat": "AI Chatbots"
   },
@@ -31069,7 +31093,7 @@
   {
     "t": "flat",
     "s": "Flathub",
-    "u": "https://flathub.org/apps/search/%s",
+    "u": "https://flathub.org/apps/search?q=%s",
     "d": "flathub.org",
     "ts": [
       "flathub",
@@ -31081,7 +31105,7 @@
   {
     "t": "flaticon",
     "s": "FlatIcon",
-    "u": "https://www.flaticon.com/search/%s",
+    "u": "https://www.flaticon.com/search?word=%s",
     "d": "www.flaticon.com",
     "ts": [],
     "cat": "Multimedia",
@@ -44929,11 +44953,14 @@
     "subCat": "General"
   },
   {
-    "t": "intaljazeera",
-    "s": "Aljazeera",
-    "u": "https://www.aljazeera.com/Services/Search/?q=%s",
+    "t": "aljazeera",
+    "s": "Al Jazeera",
+    "u": "https://www.aljazeera.com/search/%s",
     "d": "www.aljazeera.com",
-    "ts": [],
+    "ts": [
+      "intaljazeera",
+      "aje"
+    ],
     "cat": "News",
     "subCat": "International"
   },
@@ -58019,7 +58046,7 @@
   {
     "t": "morningstar",
     "s": "Morningstar Search",
-    "u": "https://www.morningstar.com/search.html?q=%s",
+    "u": "https://www.morningstar.com/search?query=%s",
     "d": "www.morningstar.com",
     "ts": [],
     "cat": "Research",
@@ -58525,24 +58552,6 @@
     "ts": [],
     "cat": "Research",
     "subCat": "Reference (science)"
-  },
-  {
-    "t": "mseq",
-    "s": "Morningstar (ETF quote)",
-    "u": "http://etfs.morningstar.com/quote?t=%s",
-    "d": "etfs.morningstar.com",
-    "ts": [],
-    "cat": "Online Services",
-    "subCat": "Tools"
-  },
-  {
-    "t": "msfq",
-    "s": "Morningstar",
-    "u": "https://www.morningstar.com/funds/xnas/%s/quote.html",
-    "d": "www.morningstar.com",
-    "ts": [],
-    "cat": "Online Services",
-    "subCat": "Tools"
   },
   {
     "t": "msg",
@@ -67165,7 +67174,7 @@
       "pplx"
     ],
     "cat": "Online Services",
-    "subCat": "Tools"
+    "subCat": "AI Chatbots"
   },
   {
     "t": "per",
@@ -67215,7 +67224,7 @@
   {
     "t": "petco",
     "s": "Petco",
-    "u": "http://www.petco.com/shop/SearchDisplay?categoryId=&storeId=10151&catalogId=10051&langId=-1&sType=SimpleSearch&resultCatEntryType=2&showResultsPage=true&searchSource=Q&pageView=&beginIndex=0&pageSize=24&fromPageValue=search&searchTerm=%s",
+    "u": "https://www.petco.com/shop/en/petcostore/search?query=%s",
     "d": "www.petco.com",
     "ts": [],
     "cat": "Shopping",
@@ -68843,6 +68852,15 @@
     "ts": [],
     "cat": "Online Services",
     "subCat": "Tools"
+  },
+  {
+    "t": "podnews",
+    "s": "Podnews",
+    "u": "https://podnews.net/search?q=%s",
+    "d": "podnews.net",
+    "ts": [],
+    "cat": "News",
+    "subCat": "Business"
   },
   {
     "t": "poedb",
@@ -73575,7 +73593,7 @@
   {
     "t": "reuq",
     "s": "Reuters",
-    "u": "https://www.reuters.com/search/news?blob=%s",
+    "u": "https://www.reuters.com/site-search/?query=%s",
     "d": "www.reuters.com",
     "ts": [
       "reuters"
@@ -86225,6 +86243,18 @@
     "ts": [],
     "cat": "Online Services",
     "subCat": "Social"
+  },
+  {
+    "t": "trainb",
+    "s": "Trainboard",
+    "u": "https://trainboard.eu/bang.html?station=%s",
+    "d": "trainboard.eu",
+    "ts": [
+      "trainboard",
+      "zugtafel"
+    ],
+    "cat": "Online Services",
+    "subCat": "Tools"
   },
   {
     "t": "tlld",
@@ -102046,6 +102076,15 @@
     "ts": [
       "proofread"
     ],
+    "cat": "Translation",
+    "subCat": "General"
+  },
+  {
+    "t": "kdic",
+    "s": "Kagi Translate (Dictionary)",
+    "u": "https://translate.kagi.com/dictionary?word=%s&from=auto",
+    "d": "translate.kagi.com",
+    "ts": [],
     "cat": "Translation",
     "subCat": "General"
   },
