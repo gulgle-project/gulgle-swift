@@ -4748,10 +4748,12 @@
   },
   {
     "t": "ap",
-    "s": "AP",
-    "u": "https://ap.org/?s=%s&orderby=",
-    "d": "ap.org",
-    "ts": [],
+    "s": "AP News",
+    "u": "https://apnews.com/search?q=%s",
+    "d": "apnews.com",
+    "ts": [
+      "apnews"
+    ],
     "cat": "News",
     "subCat": "Broadcast"
   },
@@ -7660,7 +7662,7 @@
   {
     "t": "bam",
     "s": "Books-A-Million",
-    "u": "https://www.booksamillion.com/search?query=%s",
+    "u": "https://www.booksamillion.com/search2?query=%s",
     "d": "www.booksamillion.com",
     "ts": [],
     "cat": "Shopping",
@@ -11913,6 +11915,18 @@
     "ts": [],
     "cat": "Entertainment",
     "subCat": "Misc"
+  },
+  {
+    "t": "blockscan",
+    "s": "Blockscan",
+    "u": "https://blockscan.com/home/searchaddress?searchAddress=%s",
+    "d": "blockscan.com",
+    "ts": [
+      "bscan",
+      "bsc"
+    ],
+    "cat": "Tech",
+    "subCat": "Cryptocurrency"
   },
   {
     "t": "btcaddr",
@@ -18420,6 +18434,15 @@
     "subCat": "Academic"
   },
   {
+    "t": "cdomain",
+    "s": "Cloudflare Domains",
+    "u": "https://domains.cloudflare.com/?domain=%s/",
+    "d": "domains.cloudflare.com",
+    "ts": [],
+    "cat": "Tech",
+    "subCat": "domains"
+  },
+  {
     "t": "cultofmac",
     "s": "Cult of Mac",
     "u": "https://www.cultofmac.com/?s=%s",
@@ -22633,7 +22656,7 @@
   {
     "t": "dmde",
     "s": "DM.DE",
-    "u": "https://www.dm.de/search/468652.html?type=product&q=%s",
+    "u": "https://www.dm.de/search?query=%s",
     "d": "www.dm.de",
     "ts": [],
     "cat": "Shopping",
@@ -54314,8 +54337,8 @@
   {
     "t": "mari",
     "s": "Supreme Court of Indonesia",
-    "u": "https://putusan.mahkamahagung.go.id/main/pencarian/?q=%s",
-    "d": "putusan.mahkamahagung.go.id",
+    "u": "https://putusan3.mahkamahagung.go.id/search.html?q=%s",
+    "d": "putusan3.mahkamahagung.go.id",
     "ts": [],
     "cat": "Research",
     "subCat": "Law"
@@ -58018,7 +58041,7 @@
   {
     "t": "mouser",
     "s": "Mouser Electronics",
-    "u": "https://www.mouser.com/Search/Refine.aspx?Keyword=%s",
+    "u": "https://www.mouser.com/c/?q=%s",
     "d": "www.mouser.com",
     "ts": [],
     "cat": "Shopping",
@@ -85592,8 +85615,8 @@
   {
     "t": "tidal",
     "s": "Tidal",
-    "u": "https://listen.tidal.com/search/%s",
-    "d": "listen.tidal.com",
+    "u": "https://tidal.com/search/?q=%s",
+    "d": "tidal.com",
     "ts": [],
     "cat": "Multimedia",
     "subCat": "Music"
@@ -92527,7 +92550,7 @@
   {
     "t": "waitrose",
     "s": "Waitrose",
-    "u": "https://www.waitrose.com/shop/HeaderSearchCmd?searchTerm=%s",
+    "u": "https://www.waitrose.com/ecom/shop/search?searchTerm=%s",
     "d": "www.waitrose.com",
     "ts": [],
     "cat": "Shopping",
@@ -93127,7 +93150,7 @@
   },
   {
     "t": "web1913",
-    "s": "Webster's Dictionary (1913) !websters Webster's Dictionary 1828 - Online Edition !owd Merriam-Webster Dictionary !mw Merriam-Webster Pronunciation !say Merriam-Webster's Learner's Dictionary !mwl Webster's Revised Unabridged Dictionary (1913)",
+    "s": "Webster's Dictionary (1913)",
     "u": "https://www.websters1913.com/words/%s",
     "d": "www.websters1913.com",
     "ts": [],
@@ -94537,6 +94560,15 @@
     "ts": [],
     "cat": "Tech",
     "subCat": "Sysadmin"
+  },
+  {
+    "t": "zig",
+    "s": "Ziglang std docs",
+    "u": "https://ziglang.org/documentation/master/std/#?%s",
+    "d": "ziglang.org",
+    "ts": [],
+    "cat": "Tech",
+    "subCat": "Programming"
   },
   {
     "t": "wikizionario",
@@ -101991,5 +102023,18 @@
     ],
     "cat": "Entertainment",
     "subCat": "Games (specific)"
+  },
+  {
+    "t": "tesaurus",
+    "s": "Tesaurus Tematis Badan Bahasa Indonesia",
+    "u": "https://tesaurus.kemendikdasmen.go.id/tematis/lema/%s",
+    "d": "tesaurus.kemendikdasmen.go.id",
+    "ts": [
+      "sinonim",
+      "ttbi",
+      "tsbb"
+    ],
+    "cat": "Research",
+    "subCat": "Reference (words)"
   }
 ]
