@@ -15,7 +15,23 @@ class BangRepository {
     private let customFileName = "CustomBangs.json"
 
     private init() {}
-
+    
+    func isAvailableTrigger(_ trigger: String) -> Bool {
+        guard !trigger.isEmpty else { return false }
+        
+        let builtIn = loadBuiltInBangs()
+        let custom = loadCustomBangs()
+        
+        var triggers = Set(builtIn.map { $0.trigger })
+        triggers = triggers.union(Set(custom.map { $0.trigger }))
+        
+        return !triggers.contains(trigger.lowercased())
+    }
+    
+    func isValidUrlTemplate(_ template: String) -> Bool {
+        return template.contains("%s")
+    }
+    
     // Returns built-in + custom (custom overrides on trigger conflict)
     func loadBangs() -> [Bang] {
         let builtIn = loadBuiltInBangs()
@@ -132,14 +148,16 @@ class BangRepository {
         guard !bang.trigger.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty else {
             throw ValidationError.invalidTrigger
         }
+        guard isAvailableTrigger(bang.trigger) else {
+            throw ValidationError.invalidTrigger
+        }
         guard !bang.name.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty else {
             throw ValidationError.invalidName
         }
         guard !bang.domain.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty else {
             throw ValidationError.invalidDomain
         }
-        let template = bang.urlTemplate
-        guard template.contains("%s") else {
+        guard isValidUrlTemplate(bang.urlTemplate) else {
             throw ValidationError.invalidTemplate
         }
         // Optional: restrict trigger charset to alphanumerics

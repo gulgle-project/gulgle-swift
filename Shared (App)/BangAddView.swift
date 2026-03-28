@@ -22,14 +22,26 @@ struct BangAddView: View {
     let onSaved: () -> Void
 
     var body: some View {
+        let isValidTrigger = BangRepository.shared.isAvailableTrigger(trigger)
+        let isValidUrl = BangRepository.shared.isValidUrlTemplate(urlTemplate)
+        
         NavigationStack {
             Form {
                 Section {
-                    LabeledContent("Trigger") {
+                    LabeledContent {
                         TextField("g", text: $trigger)
                         #if os(iOS)
                             .textInputAutocapitalization(.never)
                         #endif
+                    } label: {
+                        if isValidTrigger || trigger.isEmpty {
+                            Text("Trigger")
+                        } else {
+                            Text("Trigger")
+                                .foregroundStyle(.red)
+                            Text("Already in use!")
+                                .font(Font.footnote.italic())
+                        }
                     }
                     LabeledContent("Name") {
                         TextField("Google", text: $name)
@@ -43,8 +55,17 @@ struct BangAddView: View {
                     LabeledContent("Domain") {
                         TextField("google.com", text: $domain)
                     }
-                    LabeledContent("URL Template") {
+                    LabeledContent {
                         TextField("google.com/q=%s", text: $urlTemplate)
+                    } label: {
+                        if isValidUrl || urlTemplate.isEmpty {
+                            Text("URL Template")
+                        } else {
+                            Text("URL Template")
+                                .foregroundStyle(.red)
+                            Text("Must include '%s'")
+                                .font(Font.footnote.italic())
+                        }
                     }
                     LabeledContent("Additional Triggers") {
                         TextField("goo,goog", text: $additional)
@@ -86,7 +107,7 @@ struct BangAddView: View {
                             self.error = "Invalid input or trigger conflict. Ensure trigger is alphanumeric and URL template contains '%s'."
                         }
                     }
-                    .disabled(trigger.isEmpty || name.isEmpty || domain.isEmpty || urlTemplate.isEmpty)
+                    .disabled(trigger.isEmpty || name.isEmpty || domain.isEmpty || !isValidUrl || !isValidTrigger)
                 }
             }
         }
