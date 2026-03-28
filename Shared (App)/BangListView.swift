@@ -10,7 +10,10 @@ import Combine
 
 struct BangListView: View {
     @StateObject private var viewModel = BangListViewModel()
+    @ObservedObject private var authManager = AuthManager.shared
+    @ObservedObject private var syncManager = SyncManager.shared
     @State private var showingAdd = false
+    @State private var showingAccount = false
 
     var body: some View {
         NavigationStack {
@@ -45,12 +48,33 @@ struct BangListView: View {
             }
             .navigationTitle("Bangs (\(viewModel.filteredBangs.count))")
             .toolbar {
-                Button {
-                    showingAdd = true
-                } label: {
-                    Image(systemName: "plus")
+                #if os(iOS)
+                ToolbarItem(placement: .navigationBarLeading) {
+                    Button {
+                        showingAccount = true
+                    } label: {
+                        Image(systemName: authManager.isAuthenticated ? "person.crop.circle.badge.checkmark" : "person.crop.circle")
+                    }
+                    .help("Account")
                 }
-                .help("Add Custom Bang")
+                #else
+                ToolbarItem {
+                    Button {
+                        showingAccount = true
+                    } label: {
+                        Image(systemName: authManager.isAuthenticated ? "person.crop.circle.badge.checkmark" : "person.crop.circle")
+                    }
+                    .help("Account")
+                }
+                #endif
+                ToolbarItem {
+                    Button {
+                        showingAdd = true
+                    } label: {
+                        Image(systemName: "plus")
+                    }
+                    .help("Add Custom Bang")
+                }
             }
         }
         .onAppear {
@@ -61,6 +85,15 @@ struct BangListView: View {
                 viewModel.loadBangs()
                 showingAdd = false
             }
+        }
+        .sheet(isPresented: $showingAccount) {
+            AccountView(
+                authManager: authManager,
+                syncManager: syncManager,
+                onSyncComplete: {
+                    viewModel.loadBangs()
+                }
+            )
         }
     }
 }
