@@ -16,16 +16,30 @@ class BangRepository {
 
     private init() {}
     
-    func isAvailableTrigger(_ trigger: String) -> Bool {
+    func shadowsBuiltInBang(_ trigger: String) -> Bool {
+        let builtIn = loadBuiltInBangs()
+        
+        for bang in builtIn {
+            if bang.allTriggers().contains(trigger.lowercased()) {
+                return true
+            }
+        }
+        
+        return false
+    }
+    
+    func isValidTrigger(_ trigger: String) -> Bool {
         guard !trigger.isEmpty else { return false }
         
-        let builtIn = loadBuiltInBangs()
         let custom = loadCustomBangs()
         
-        var triggers = Set(builtIn.map { $0.trigger })
-        triggers = triggers.union(Set(custom.map { $0.trigger }))
+        for bang in custom {
+            if bang.allTriggers().contains(trigger.lowercased()) {
+                return false
+            }
+        }
         
-        return !triggers.contains(trigger.lowercased())
+        return true
     }
     
     func isValidUrlTemplate(_ template: String) -> Bool {
@@ -148,7 +162,7 @@ class BangRepository {
         guard !bang.trigger.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty else {
             throw ValidationError.invalidTrigger
         }
-        guard isAvailableTrigger(bang.trigger) else {
+        guard isValidTrigger(bang.trigger) else {
             throw ValidationError.invalidTrigger
         }
         guard !bang.name.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty else {

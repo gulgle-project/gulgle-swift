@@ -22,7 +22,8 @@ struct BangAddView: View {
     let onSaved: () -> Void
 
     var body: some View {
-        let isValidTrigger = BangRepository.shared.isAvailableTrigger(trigger)
+        let shadowsBuiltin = BangRepository.shared.shadowsBuiltInBang(trigger)
+        let isValidTrigger = BangRepository.shared.isValidTrigger(trigger)
         let isValidUrl = BangRepository.shared.isValidUrlTemplate(urlTemplate)
         
         NavigationStack {
@@ -35,7 +36,14 @@ struct BangAddView: View {
                         #endif
                     } label: {
                         if isValidTrigger || trigger.isEmpty {
-                            Text("Trigger")
+                            if shadowsBuiltin {
+                                Text("Trigger")
+                                    .foregroundStyle(.orange)
+                                Text("Shadows builtin trigger")
+                                    .font(Font.footnote.italic())
+                            } else {
+                                Text("Trigger")
+                            }
                         } else {
                             Text("Trigger")
                                 .foregroundStyle(.red)
