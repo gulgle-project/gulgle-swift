@@ -46,6 +46,13 @@ class BangRepository {
         return template.contains("%s")
     }
     
+    func allBangs() -> [Bang] {
+        var all = loadBuiltInBangs()
+        all.insert(contentsOf: loadCustomBangs(), at: 0)
+        all.sort { $0.trigger < $1.trigger }
+        return all
+    }
+    
     // Returns built-in + custom (custom overrides on trigger conflict)
     func loadBangs() -> [Bang] {
         let builtIn = loadBuiltInBangs()
@@ -100,6 +107,7 @@ class BangRepository {
         do {
             let data = try JSONEncoder().encode(bangs)
             try data.write(to: url, options: [.atomic])
+            bumpVersion()
         } catch {
             os_log(.error, "Error saving custom bang file!")
         }

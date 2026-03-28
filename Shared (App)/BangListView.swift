@@ -30,7 +30,9 @@ struct BangListView: View {
                         }
                         ForEach(viewModel.filteredBangs) { bangItem in
                             NavigationLink {
-                                BangDetails(bang: bangItem.bang)
+                                BangDetails(bang: bangItem.bang, onDelete: {
+                                    viewModel.loadBangs()
+                                })
                             } label: {
                                 BangRowView(bang: bangItem.bang)
                             }

@@ -9,7 +9,7 @@ import SwiftUI
 import Combine
 
 struct BangItem: Identifiable, Equatable {
-    let id = UUID()
+    var id: String { "\(bang.trigger)|\(bang.urlTemplate)" }
     let bang: Bang
 }
 
@@ -66,7 +66,7 @@ class BangListViewModel: ObservableObject {
     func loadBangs() {
         isLoading = true
         DispatchQueue.global(qos: .userInitiated).async {
-            let bangs = BangRepository.shared.loadBangs()
+            let bangs = BangRepository.shared.allBangs()
             let bangItems = bangs.map { BangItem(bang: $0) }
 
             DispatchQueue.main.async {

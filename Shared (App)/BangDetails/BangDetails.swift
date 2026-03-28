@@ -9,6 +9,7 @@ import SwiftUI
 
 struct BangDetails: View {
     var bang: Bang
+    var onDelete: (() -> Void)?
 
     @State private var showingDeleteConfirmation = false
     @Environment(\.dismiss) private var dismiss
@@ -81,6 +82,7 @@ struct BangDetails: View {
         .alert("Delete Custom Bang?", isPresented: $showingDeleteConfirmation) {
             Button("Delete", role: .destructive) {
                 BangRepository.shared.deleteCustomBang(withTrigger: bang.trigger)
+                onDelete?()
                 dismiss()
             }
             Button("Cancel", role: .cancel) { }
