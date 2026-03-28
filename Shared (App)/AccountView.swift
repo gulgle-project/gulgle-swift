@@ -14,6 +14,10 @@ struct AccountView: View {
 
     var onSyncComplete: (() -> Void)?
 
+    private var showSyncBubble: Bool {
+        syncManager.status.isSyncing || syncManager.status.isSuccess
+    }
+
     var body: some View {
         NavigationStack {
             List {
@@ -29,6 +33,14 @@ struct AccountView: View {
                     CloseButton { dismiss() }
                 }
             }
+            .overlay(alignment: .bottom) {
+                if showSyncBubble {
+                    SyncBubble(status: syncManager.status)
+                        .transition(.move(edge: .bottom).combined(with: .opacity))
+                        .padding(.bottom, 16)
+                }
+            }
+            .animation(.easeInOut(duration: 0.3), value: showSyncBubble)
         }
     }
 
@@ -101,8 +113,6 @@ struct AccountView: View {
         }
 
         Section(header: Text("Sync")) {
-            syncStatusRow
-
             Button {
                 Task {
                     await syncManager.fullSync()
@@ -187,53 +197,6 @@ struct AccountView: View {
                 HStack {
                     Image(systemName: "rectangle.portrait.and.arrow.forward")
                     Text("Sign Out")
-                }
-            }
-        }
-    }
-
-    // MARK: - Sync Status Row
-
-    @ViewBuilder
-    private var syncStatusRow: some View {
-        HStack {
-            Text("Status")
-            Spacer()
-            switch syncManager.status {
-            case .idle:
-                Text("Idle")
-                    .foregroundColor(.secondary)
-            case .syncing:
-                HStack(spacing: 6) {
-                    ProgressView()
-                        #if os(iOS)
-                        .controlSize(.small)
-                        #endif
-                    Text("Syncing...")
-                }
-                .foregroundColor(.secondary)
-            case .success:
-                HStack(spacing: 4) {
-                    Image(systemName: "checkmark.circle.fill")
-                        .foregroundColor(.green)
-                    Text("Synced")
-                        .foregroundColor(.green)
-                }
-            case .error(let message):
-                HStack(spacing: 4) {
-                    Image(systemName: "exclamationmark.triangle.fill")
-                        .foregroundColor(.red)
-                    Text(message)
-                        .foregroundColor(.red)
-                        .font(.footnote)
-                        .lineLimit(2)
-                }
-            case .conflict:
-                HStack(spacing: 4) {
-                    Image(systemName: "exclamationmark.triangle.fill")
-                        .foregroundColor(.orange)
-                    Text("Conflict")
-                        .foregroundColor(.orange)
                 }
             }
         }
