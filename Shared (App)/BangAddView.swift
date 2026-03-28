@@ -123,6 +123,5 @@ struct BangAddView: View {
 }
 
 #Preview {
-    BangAddView {
-    }
+    BangAddView {}
 }
