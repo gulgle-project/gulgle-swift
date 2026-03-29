@@ -12,10 +12,33 @@ struct BangDetails: View {
     var onDelete: (() -> Void)?
 
     @State private var showingDeleteConfirmation = false
+    @State private var usageEntry: BangUsageEntry?
     @Environment(\.dismiss) private var dismiss
+
+    private var lastUsedText: String {
+        guard let lastUsed = usageEntry?.lastUsed else { return "Never" }
+        let formatter = RelativeDateTimeFormatter()
+        formatter.unitsStyle = .full
+        return formatter.localizedString(for: lastUsed, relativeTo: Date())
+    }
 
     var body: some View {
         List {
+            Section(header: Text("Usage")) {
+                HStack {
+                    Text("Times used")
+                    Spacer()
+                    Text("\(usageEntry?.count ?? 0)")
+                        .foregroundColor(.secondary)
+                }
+                HStack {
+                    Text("Last used")
+                    Spacer()
+                    Text(lastUsedText)
+                        .foregroundColor(.secondary)
+                }
+            }
+
             Section(header: Text("Trigger")) {
                 HStack {
                     Text("Primary")
@@ -79,6 +102,9 @@ struct BangDetails: View {
             }
         }
         .navigationTitle(bang.name)
+        .onAppear {
+            usageEntry = BangUsageRepository.shared.usage(for: bang.trigger)
+        }
         .alert("Delete Custom Bang?", isPresented: $showingDeleteConfirmation) {
             Button("Delete", role: .destructive) {
                 BangRepository.shared.deleteCustomBang(withTrigger: bang.trigger)
