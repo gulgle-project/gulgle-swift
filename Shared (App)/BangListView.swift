@@ -27,7 +27,7 @@ struct BangListView: View {
                             Toggle(isOn: $viewModel.showCustomOnly) {
                                 Text("Show only custom bangs")
                             }
-                            if #available(iOS 17.0, *) {
+                            if #available(iOS 17.0, *), #available(macOS 14.0, *) {
                                 HStack {
                                     Text("Bangs")
                                     Spacer()
