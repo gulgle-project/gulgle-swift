@@ -27,7 +27,23 @@ struct BangListView: View {
                             Toggle(isOn: $viewModel.showCustomOnly) {
                                 Text("Show only custom bangs")
                             }
+                            if #available(iOS 17.0, *) {
+                                HStack {
+                                    Text("Bangs")
+                                    Spacer()
+                                    Text(viewModel.filteredBangs.count, format: .number)
+                                        .contentTransition(.numericText(value: Double(viewModel.filteredBangs.count)))
+                                        .animation(.easeInOut, value: viewModel.filteredBangs.count)
+                                }
+                            } else {
+                                HStack {
+                                    Text("Bangs")
+                                    Spacer()
+                                    Text(viewModel.filteredBangs.count, format: .number)
+                                }
+                            }
                         }
+                            
                         ForEach(viewModel.filteredBangs) { bangItem in
                             NavigationLink {
                                 BangDetails(bang: bangItem.bang, onDelete: {
@@ -48,7 +64,7 @@ struct BangListView: View {
                     })
                 }
             }
-            .navigationTitle("Bangs (\(viewModel.filteredBangs.count))")
+            .navigationTitle("Bangs")
             .toolbar {
                 #if os(iOS)
                 ToolbarItem(placement: .navigationBarLeading) {
