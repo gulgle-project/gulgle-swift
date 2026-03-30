@@ -1,92 +1,18 @@
 //
-//  AccountView.swift
+//  SyncView.swift
 //  Gulgle
 //
-//  Created for Gulgle auth functionality.
+//  Created by Wolfgang Schwendtbauer on 30.03.26.
 //
 
 import SwiftUI
 
-struct AccountView: View {
-    @ObservedObject var authManager: AuthManager
-    @ObservedObject var syncManager: SyncManager
-    @Environment(\.dismiss) private var dismiss
-
-    var onSyncComplete: (() -> Void)?
-
-    private var showSyncBubble: Bool {
-        syncManager.status.isSyncing || syncManager.status.isSuccess
-    }
-
+struct SyncView: View {
+    @ObservedObject private var bangViewModel = BangListViewModel.shared
+    @ObservedObject private var authManager = AuthManager.shared
+    @ObservedObject private var syncManager = SyncManager.shared
+    
     var body: some View {
-        NavigationStack {
-            List {
-                if authManager.isAuthenticated {
-                    loggedInContent
-                } else {
-                    loggedOutContent
-                }
-            }
-            .navigationTitle("Account")
-            .toolbar {
-                ToolbarItem(placement: .cancellationAction) {
-                    CloseButton { dismiss() }
-                }
-            }
-            .overlay(alignment: .bottom) {
-                if showSyncBubble {
-                    SyncBubble(status: syncManager.status)
-                        .transition(.move(edge: .bottom).combined(with: .opacity))
-                        .padding(.bottom, 16)
-                }
-            }
-            .animation(.easeInOut(duration: 0.3), value: showSyncBubble)
-        }
-    }
-
-    // MARK: - Logged Out
-
-    @ViewBuilder
-    private var loggedOutContent: some View {
-        Section {
-            Text("Sign in to sync your custom bangs across devices.")
-                .foregroundColor(.secondary)
-        }
-
-        Section {
-            Button {
-                authManager.login()
-            } label: {
-                HStack {
-                    Image(systemName: "person.badge.key")
-                    Text("Continue with GitHub")
-                }
-            }
-            .disabled(authManager.isLoading)
-        }
-
-        if authManager.isLoading {
-            Section {
-                HStack {
-                    ProgressView()
-                    Text("Signing in...")
-                        .padding(.leading, 8)
-                }
-            }
-        }
-
-        if let error = authManager.error {
-            Section {
-                Text(error)
-                    .foregroundColor(.red)
-            }
-        }
-    }
-
-    // MARK: - Logged In
-
-    @ViewBuilder
-    private var loggedInContent: some View {
         Section(header: Text("Profile")) {
             if let user = authManager.user {
                 HStack {
@@ -116,7 +42,7 @@ struct AccountView: View {
             Button {
                 Task {
                     await syncManager.fullSync()
-                    onSyncComplete?()
+                    bangViewModel.loadBangs()
                 }
             } label: {
                 HStack {
@@ -129,7 +55,7 @@ struct AccountView: View {
             Button {
                 Task {
                     await syncManager.syncToCloud()
-                    onSyncComplete?()
+                    bangViewModel.loadBangs()
                 }
             } label: {
                 HStack {
@@ -142,7 +68,7 @@ struct AccountView: View {
             Button {
                 Task {
                     await syncManager.syncFromCloud()
-                    onSyncComplete?()
+                    bangViewModel.loadBangs()
                 }
             } label: {
                 HStack {
@@ -167,7 +93,7 @@ struct AccountView: View {
                 Button {
                     Task {
                         await syncManager.resolveConflict(keepLocal: true)
-                        onSyncComplete?()
+                        bangViewModel.loadBangs()
                     }
                 } label: {
                     HStack {
@@ -179,7 +105,7 @@ struct AccountView: View {
                 Button {
                     Task {
                         await syncManager.resolveConflict(keepLocal: false)
-                        onSyncComplete?()
+                        bangViewModel.loadBangs()
                     }
                 } label: {
                     HStack {
@@ -201,4 +127,8 @@ struct AccountView: View {
             }
         }
     }
+}
+
+#Preview {
+    SyncView()
 }

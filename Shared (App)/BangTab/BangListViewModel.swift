@@ -9,11 +9,17 @@ import SwiftUI
 import Combine
 
 class BangListViewModel: ObservableObject {
+    static let shared = BangListViewModel()
+    
     @Published var searchText: String = ""
     @Published var allBangs: [Bang] = []
     @Published var isLoading: Bool = true
     @Published var showCustomOnly: Bool = false
-
+    
+    init() {
+        loadBangs()
+    }
+    
     var filteredBangs: [Bang] {
         var filtered = allBangs
         if showCustomOnly {
