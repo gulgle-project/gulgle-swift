@@ -22,14 +22,14 @@ class BangUsageRepository {
 
     private init() {}
 
-    /// Record a single usage of a bang by its primary trigger.
-    func recordUsage(trigger: String) {
+    /// Record a single usage of a bang by its unique ID.
+    func recordUsage(bangID: String) {
         queue.sync {
             var usage = loadUsageUnsafe()
-            var entry = usage[trigger] ?? BangUsageEntry(count: 0, lastUsed: Date())
+            var entry = usage[bangID] ?? BangUsageEntry(count: 0, lastUsed: Date())
             entry.count += 1
             entry.lastUsed = Date()
-            usage[trigger] = entry
+            usage[bangID] = entry
             saveUsage(usage)
         }
     }
@@ -39,9 +39,9 @@ class BangUsageRepository {
         return queue.sync { loadUsageUnsafe() }
     }
 
-    /// Convenience: look up usage for a single trigger.
-    func usage(for trigger: String) -> BangUsageEntry? {
-        return loadUsage()[trigger]
+    /// Convenience: look up usage for a single bang by its unique ID.
+    func usage(for bangID: String) -> BangUsageEntry? {
+        return loadUsage()[bangID]
     }
 
     // MARK: - Private

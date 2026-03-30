@@ -103,7 +103,7 @@ struct BangDetails: View {
         }
         .navigationTitle(bang.name)
         .onAppear {
-            usageEntry = BangUsageRepository.shared.usage(for: bang.trigger)
+            usageEntry = BangUsageRepository.shared.usage(for: bang.id)
         }
         .alert("Delete Custom Bang?", isPresented: $showingDeleteConfirmation) {
             Button("Delete", role: .destructive) {

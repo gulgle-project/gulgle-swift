@@ -90,7 +90,7 @@ class SafariWebExtensionHandler: NSObject, NSExtensionRequestHandling {
         if let bangMatch = bangParser.parseBang(from: query) {
             let redirectURL = bangParser.buildRedirectURL(for: bangMatch)
             os_log(.default, "Bang match found: %@ -> %@", bangMatch.matchedTrigger, redirectURL)
-            BangUsageRepository.shared.recordUsage(trigger: bangMatch.bang.trigger)
+            BangUsageRepository.shared.recordUsage(bangID: bangMatch.bang.id)
 
             sendResponse(data: [
                 "type": "redirect",

@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Bang: Codable, Equatable {
+struct Bang: Codable, Equatable, Identifiable {
     let trigger: String
     let name: String
     let category: String?
@@ -16,6 +16,8 @@ struct Bang: Codable, Equatable {
     let domain: String
     let additionalTriggers: [String]?
     let isCustom: Bool?
+
+    var id: String { "\(trigger)|\(urlTemplate)" }
 
     enum CodingKeys: String, CodingKey {
         case trigger = "t"
