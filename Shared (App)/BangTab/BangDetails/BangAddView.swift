@@ -31,9 +31,9 @@ struct BangAddView: View {
                 Section {
                     LabeledContent {
                         TextField("g", text: $trigger)
-                        #if os(iOS)
+#if os(iOS)
                             .textInputAutocapitalization(.never)
-                        #endif
+#endif
                     } label: {
                         if isValidTrigger || trigger.isEmpty {
                             if shadowsBuiltin {
@@ -54,15 +54,6 @@ struct BangAddView: View {
                     LabeledContent("Name") {
                         TextField("Google", text: $name)
                     }
-                    LabeledContent("Category") {
-                        TextField("Services", text: $category)
-                    }
-                    LabeledContent("Subcategory") {
-                        TextField("Search", text: $subCategory)
-                    }
-                    LabeledContent("Domain") {
-                        TextField("google.com", text: $domain)
-                    }
                     LabeledContent {
                         TextField("google.com/q=%s", text: $urlTemplate)
                     } label: {
@@ -75,11 +66,24 @@ struct BangAddView: View {
                                 .font(Font.footnote.italic())
                         }
                     }
+                    LabeledContent("Domain") {
+                        TextField("google.com", text: $domain)
+                    }
+                }
+                    .multilineTextAlignment(.trailing)
+                    
+                Section("Optional") {
+                    LabeledContent("Category") {
+                        TextField("Services", text: $category)
+                    }
+                    LabeledContent("Subcategory") {
+                        TextField("Search", text: $subCategory)
+                    }
                     LabeledContent("Additional Triggers") {
                         TextField("goo,goog", text: $additional)
                     }
                 }
-                .multilineTextAlignment(.trailing)
+                    .multilineTextAlignment(.trailing)
 
                 if let error = error {
                     Text(error).foregroundColor(.red)

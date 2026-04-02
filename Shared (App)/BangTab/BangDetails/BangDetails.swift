@@ -24,21 +24,6 @@ struct BangDetails: View {
 
     var body: some View {
         List {
-            Section(header: Text("Usage")) {
-                HStack {
-                    Text("Times used")
-                    Spacer()
-                    Text("\(usageEntry?.count ?? 0)")
-                        .foregroundColor(.secondary)
-                }
-                HStack {
-                    Text("Last used")
-                    Spacer()
-                    Text(lastUsedText)
-                        .foregroundColor(.secondary)
-                }
-            }
-
             Section(header: Text("Trigger")) {
                 HStack {
                     Text("Primary")
@@ -90,6 +75,21 @@ struct BangDetails: View {
                 VStack(alignment: .leading, spacing: 8) {
                     Text("Template")
                     TemplateWithHighlight(bang.urlTemplate)
+                }
+            }
+            
+            Section(header: Text("Usage")) {
+                HStack {
+                    Text("Times used")
+                    Spacer()
+                    Text("\(usageEntry?.count ?? 0)")
+                        .foregroundColor(.secondary)
+                }
+                HStack {
+                    Text("Last used")
+                    Spacer()
+                    Text(lastUsedText)
+                        .foregroundColor(.secondary)
                 }
             }
 
