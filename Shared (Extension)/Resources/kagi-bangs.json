@@ -334,7 +334,11 @@
     "s": "2GIS",
     "u": "https://2gis.ru/search/%s",
     "d": "2gis.ru",
-    "ts": [],
+    "ts": [
+      "дубльгис",
+      "двагис",
+      "2гис"
+    ],
     "cat": "Online Services",
     "subCat": "Maps"
   },
@@ -1602,7 +1606,10 @@
     "s": "Словари и энциклопедии на Академике",
     "u": "https://dic.academic.ru/searchall.php?SWord=%s",
     "d": "dic.academic.ru",
-    "ts": [],
+    "ts": [
+      "акад",
+      "академик"
+    ],
     "cat": "Research",
     "subCat": "Academic"
   },
@@ -2110,7 +2117,9 @@
     "s": "Adme.ru",
     "u": "https://www.adme.ru/search/?q=%s",
     "d": "www.adme.ru",
-    "ts": [],
+    "ts": [
+      "адми"
+    ],
     "cat": "Entertainment",
     "subCat": "Misc"
   },
@@ -5854,7 +5863,7 @@
   {
     "t": "arin",
     "s": "ARIN Whois",
-    "u": "https://whois.arin.net/ui/query.do?queryinput=%s",
+    "u": "https://whois.arin.net/ui/?q=%s",
     "d": "whois.arin.net",
     "ts": [],
     "cat": "Tech",
@@ -7128,7 +7137,9 @@
     "s": "Avito",
     "u": "https://www.avito.ru/?q=%s",
     "d": "www.avito.ru",
-    "ts": [],
+    "ts": [
+      "авито"
+    ],
     "cat": "Shopping",
     "subCat": "Online (marketplace)"
   },
@@ -9582,7 +9593,8 @@
     "u": "https://bigenc.ru/search?q=%s",
     "d": "bigenc.ru",
     "ts": [
-      "gre"
+      "gre",
+      "брэ"
     ],
     "cat": "Research",
     "subCat": "Reference"
@@ -12760,7 +12772,9 @@
     "u": "https://calendar.google.com/calendar/b/0/r/search?q=%s",
     "d": "calendar.google.com",
     "ts": [
-      "calendar"
+      "calendar",
+      "календарь",
+      "гкал"
     ],
     "cat": "Online Services",
     "subCat": "Google"
@@ -13658,7 +13672,8 @@
     "ts": [
       "cxx",
       "rcpp",
-      "stl"
+      "stl",
+      "cplusplus"
     ],
     "cat": "Tech",
     "subCat": "Languages (c++)"
@@ -14550,7 +14565,8 @@
     "u": "https://www.google.com/search?q=%s&udm=50",
     "d": "www.google.com",
     "ts": [
-      "googleai"
+      "googleai",
+      "гии"
     ],
     "cat": "Online Services",
     "subCat": "AI Chatbots"
@@ -16547,7 +16563,9 @@
     "s": "Compose Email (Gmail)",
     "u": "https://mail.google.com/mail/?view=cm&to=&su=%s",
     "d": "mail.google.com",
-    "ts": [],
+    "ts": [
+      "письмо"
+    ],
     "cat": "Online Services",
     "subCat": "Google"
   },
@@ -16759,7 +16777,10 @@
     "s": "Consultant Plus",
     "u": "https://www.consultant.ru/search/?q=%s",
     "d": "www.consultant.ru",
-    "ts": [],
+    "ts": [
+      "консультант",
+      "кплюс"
+    ],
     "cat": "Research",
     "subCat": "Law"
   },
@@ -16791,7 +16812,8 @@
     "d": "contacts.google.com",
     "ts": [
       "gc",
-      "gcontact"
+      "gcontact",
+      "контакты"
     ],
     "cat": "Online Services",
     "subCat": "Google"
@@ -17464,15 +17486,6 @@
     "ts": [],
     "cat": "Research",
     "subCat": "Reference"
-  },
-  {
-    "t": "cplusplus",
-    "s": "Cplusplus.com",
-    "u": "https://www.cplusplus.com/query/search.cgi?q=%s",
-    "d": "www.cplusplus.com",
-    "ts": [],
-    "cat": "Tech",
-    "subCat": "Languages (c++)"
   },
   {
     "t": "cpost",
@@ -18770,7 +18783,10 @@
     "s": "Киберленинка",
     "u": "https://cyberleninka.ru/search?q=%s",
     "d": "cyberleninka.ru",
-    "ts": [],
+    "ts": [
+      "кибл",
+      "киберленинка"
+    ],
     "cat": "Research",
     "subCat": "Academic"
   },
@@ -18911,7 +18927,11 @@
     "s": "Drive2.ru",
     "u": "https://www.drive2.ru/search?text=%s",
     "d": "www.drive2.ru",
-    "ts": [],
+    "ts": [
+      "drive2",
+      "драйв2",
+      "д2"
+    ],
     "cat": "Tech",
     "subCat": "Blogs"
   },
@@ -18929,7 +18949,9 @@
     "s": "dirty.ru",
     "u": "https://dirty.ru/search/?query=%s",
     "d": "dirty.ru",
-    "ts": [],
+    "ts": [
+      "д3"
+    ],
     "cat": "Entertainment",
     "subCat": "Forum"
   },
@@ -18974,7 +18996,9 @@
     "s": "Папа знает",
     "u": "https://daddyknows.ru/?s=%s",
     "d": "daddyknows.ru",
-    "ts": [],
+    "ts": [
+      "папазнает"
+    ],
     "cat": "Entertainment",
     "subCat": "Blogs"
   },
@@ -22815,7 +22839,9 @@
     "s": "DNS",
     "u": "https://www.dns-shop.ru/search/?q=%s",
     "d": "www.dns-shop.ru",
-    "ts": [],
+    "ts": [
+      "днс"
+    ],
     "cat": "Shopping",
     "subCat": "Online (marketplace)"
   },
@@ -23779,7 +23805,9 @@
     "u": "https://drive.google.com/drive/search?q=%s",
     "d": "drive.google.com",
     "ts": [
-      "gdrive"
+      "gdrive",
+      "гдиск",
+      "драйв"
     ],
     "cat": "Online Services",
     "subCat": "Google"
@@ -23816,7 +23844,9 @@
     "s": "drom.ru",
     "u": "https://www.drom.ru/search/?q=%s",
     "d": "www.drom.ru",
-    "ts": [],
+    "ts": [
+      "дром"
+    ],
     "cat": "Shopping",
     "subCat": "Online (deals)"
   },
@@ -24611,7 +24641,9 @@
     "s": "e1",
     "u": "https://www.e1.ru/news/search/?search=%s",
     "d": "www.e1.ru",
-    "ts": [],
+    "ts": [
+      "е1"
+    ],
     "cat": "News",
     "subCat": "Online"
   },
@@ -24712,7 +24744,9 @@
     "s": "Google Earth",
     "u": "https://earth.google.com/web/search/%s",
     "d": "earth.google.com",
-    "ts": [],
+    "ts": [
+      "земля"
+    ],
     "cat": "Online Services",
     "subCat": "Google"
   },
@@ -29021,7 +29055,9 @@
     "s": "Google Images (Faces)",
     "u": "https://www.google.com/search?tbm=isch&tbs=itp:face&q=%s",
     "d": "www.google.com",
-    "ts": [],
+    "ts": [
+      "лица"
+    ],
     "cat": "Online Services",
     "subCat": "Google"
   },
@@ -29340,7 +29376,9 @@
     "s": "Лаборатория Фантастики",
     "u": "https://fantlab.ru/searchmain?searchstr=%s",
     "d": "fantlab.ru",
-    "ts": [],
+    "ts": [
+      "фантлаб"
+    ],
     "cat": "Multimedia",
     "subCat": "Books"
   },
@@ -31121,7 +31159,9 @@
     "d": "www.google.com",
     "ts": [
       "gluck",
-      "lucky"
+      "lucky",
+      "гмп",
+      "фл"
     ],
     "cat": "Online Services",
     "subCat": "Search"
@@ -32983,7 +33023,9 @@
     "s": "Google Search 100 Results",
     "u": "https://www.google.com/search?q=%s&tbo=1&num=100",
     "d": "www.google.com",
-    "ts": [],
+    "ts": [
+      "г100"
+    ],
     "cat": "Online Services",
     "subCat": "Search"
   },
@@ -33533,7 +33575,10 @@
       "gp",
       "gplay",
       "play",
-      "playstore"
+      "playstore",
+      "гплей",
+      "плей",
+      "плейстор"
     ],
     "cat": "Online Services",
     "subCat": "Google"
@@ -33802,7 +33847,9 @@
     "s": "Books.google.com",
     "u": "https://www.google.com/search?nfpr=1&tbm=bks&q=%s",
     "d": "www.google.com",
-    "ts": [],
+    "ts": [
+      "гкниги"
+    ],
     "cat": "Research",
     "subCat": "Reference"
   },
@@ -34149,7 +34196,11 @@
     "u": "https://docs.google.com/document/u/0/?q=%s",
     "d": "docs.google.com",
     "ts": [
-      "gdocs"
+      "gdocs",
+      "гд",
+      "гдок",
+      "гдокс",
+      "гдокументы"
     ],
     "cat": "Online Services",
     "subCat": "Google"
@@ -34333,15 +34384,6 @@
     "ts": [],
     "cat": "Entertainment",
     "subCat": "Misc"
-  },
-  {
-    "t": "geeks",
-    "s": "GeeksforGeeks",
-    "u": "https://www.geeksforgeeks.org/?s=%s",
-    "d": "www.geeksforgeeks.org",
-    "ts": [],
-    "cat": "Research",
-    "subCat": "Learning"
   },
   {
     "t": "geeksided",
@@ -34874,9 +34916,11 @@
   {
     "t": "gfg",
     "s": "geeksforgeeks",
-    "u": "https://www.geeksforgeeks.org/?q=%s",
+    "u": "https://www.geeksforgeeks.org/search/?gq=%s",
     "d": "www.geeksforgeeks.org",
-    "ts": [],
+    "ts": [
+      "geeks"
+    ],
     "cat": "Tech",
     "subCat": "Programming"
   },
@@ -35035,7 +35079,8 @@
     "u": "https://groups.google.com/groups/search?q=%s&qt_s=Search+Groups",
     "d": "groups.google.com",
     "ts": [
-      "ggroups"
+      "ggroups",
+      "гг"
     ],
     "cat": "Online Services",
     "subCat": "Google"
@@ -35045,7 +35090,9 @@
     "s": "Google Images (Animated)",
     "u": "https://www.google.com/search?q=%s&site=webhp&tbm=isch&tbs=itp:animated",
     "d": "www.google.com",
-    "ts": [],
+    "ts": [
+      "ггиф"
+    ],
     "cat": "Multimedia",
     "subCat": "Images"
   },
@@ -35424,7 +35471,9 @@
     "s": "Google Images Classic",
     "u": "https://www.google.com/search?q=%s&tbm=isch&sout=1",
     "d": "www.google.com",
-    "ts": [],
+    "ts": [
+      "гкк"
+    ],
     "cat": "Online Services",
     "subCat": "Google"
   },
@@ -36087,6 +36136,7 @@
     "ts": [
       "gmaps",
       "gm",
+      "гкарты",
       "googlemap",
       "googlemaps"
     ],
@@ -36542,7 +36592,9 @@
     "s": "Google News RU",
     "u": "https://www.google.ru/search?q=%s&tbm=nws&cad=h",
     "d": "www.google.ru",
-    "ts": [],
+    "ts": [
+      "гн"
+    ],
     "cat": "News",
     "subCat": "Aggregators"
   },
@@ -37406,7 +37458,9 @@
     "s": "Google Photos",
     "u": "https://photos.google.com/search/%s",
     "d": "photos.google.com",
-    "ts": [],
+    "ts": [
+      "гфото"
+    ],
     "cat": "Multimedia",
     "subCat": "Images"
   },
@@ -37604,7 +37658,9 @@
     "s": "gramota.ru",
     "u": "https://gramota.ru/slovari/dic/?word=%s&all=x",
     "d": "gramota.ru",
-    "ts": [],
+    "ts": [
+      "грамота"
+    ],
     "cat": "Research",
     "subCat": "Reference (words)"
   },
@@ -38017,7 +38073,11 @@
     "ts": [
       "gsheets",
       "gsh",
-      "gspreadsheets"
+      "gspreadsheets",
+      "гш",
+      "гтаблицы",
+      "гшит",
+      "гшитс"
     ],
     "cat": "Online Services",
     "subCat": "Google"
@@ -38063,7 +38123,13 @@
     "s": "Google Slides",
     "u": "https://slides.google.com/presentation/u/0/?q=%s",
     "d": "slides.google.com",
-    "ts": [],
+    "ts": [
+      "гслайд",
+      "гслайдс",
+      "гс",
+      "гпрез",
+      "гпрезентации"
+    ],
     "cat": "Online Services",
     "subCat": "Google"
   },
@@ -38475,7 +38541,8 @@
       "gt-english",
       "gtenglish",
       "gt",
-      "gtranslate"
+      "gtranslate",
+      "гп"
     ],
     "cat": "Translation",
     "subCat": "Google"
@@ -39788,7 +39855,9 @@
     "s": "Google Video",
     "u": "https://www.google.com/search?tbm=vid&q=%s",
     "d": "www.google.com",
-    "ts": [],
+    "ts": [
+      "гв"
+    ],
     "cat": "Online Services",
     "subCat": "Google"
   },
@@ -40153,7 +40222,9 @@
     "s": "HabraHabr",
     "u": "https://habr.com/ru/search/?&q=%s",
     "d": "habr.com",
-    "ts": [],
+    "ts": [
+      "хабр"
+    ],
     "cat": "Tech",
     "subCat": "Blogs"
   },
@@ -41329,7 +41400,10 @@
     "s": "Hi-News.ru",
     "u": "https://hi-news.ru/?s=%s",
     "d": "hi-news.ru",
-    "ts": [],
+    "ts": [
+      "хайн",
+      "хайньюс"
+    ],
     "cat": "News",
     "subCat": "Specialty"
   },
@@ -42361,7 +42435,9 @@
     "s": "htmlbook.ru",
     "u": "https://htmlbook.ru/search/?as_q=%s",
     "d": "htmlbook.ru",
-    "ts": [],
+    "ts": [
+      "хтмлбук"
+    ],
     "cat": "Tech",
     "subCat": "Languages (html)"
   },
@@ -44431,7 +44507,10 @@
     "s": "Inbox by Gmail",
     "u": "https://inbox.google.com/search/%s",
     "d": "inbox.google.com",
-    "ts": [],
+    "ts": [
+      "гмейл",
+      "гпочта"
+    ],
     "cat": "Online Services",
     "subCat": "Google"
   },
@@ -45290,7 +45369,10 @@
     "s": "IRecommend",
     "u": "https://irecommend.ru/srch?query=%s",
     "d": "irecommend.ru",
-    "ts": [],
+    "ts": [
+      "айрекомменд",
+      "айрек"
+    ],
     "cat": "Shopping",
     "subCat": "Online"
   },
@@ -48006,7 +48088,10 @@
     "s": "Google Keep",
     "u": "https://keep.google.com/#search/text=%s",
     "d": "keep.google.com",
-    "ts": [],
+    "ts": [
+      "гзаметки",
+      "гз"
+    ],
     "cat": "Online Services",
     "subCat": "Google"
   },
@@ -48150,7 +48235,9 @@
     "s": "KG-Portal",
     "u": "https://kg-portal.ru/?search&s_str=%s",
     "d": "kg-portal.ru",
-    "ts": [],
+    "ts": [
+      "кг"
+    ],
     "cat": "Entertainment",
     "subCat": "Movies"
   },
@@ -48442,7 +48529,9 @@
     "u": "https://www.kinopoisk.ru/index.php?first=no&what=&kp_query=%s",
     "d": "www.kinopoisk.ru",
     "ts": [
-      "kpoisk"
+      "kpoisk",
+      "кп",
+      "кинопоиск"
     ],
     "cat": "Multimedia",
     "subCat": "Video"
@@ -49114,6 +49203,15 @@
     "ts": [],
     "cat": "Online Services",
     "subCat": "Tools"
+  },
+  {
+    "t": "kingarthur",
+    "s": "King Arthur Baking",
+    "u": "https://www.kingarthurbaking.com/search?query=%s#all_indices",
+    "d": "www.kingarthurbaking.com",
+    "ts": [],
+    "cat": "Research",
+    "subCat": "Food"
   },
   {
     "t": "kos",
@@ -50147,6 +50245,17 @@
     "subCat": "Law"
   },
   {
+    "t": "lc++",
+    "s": "legacy cplusplus.com ",
+    "u": "https://legacy.cplusplus.com/search.do?q=%s",
+    "d": "legacy.cplusplus.com",
+    "ts": [
+      "lcpp"
+    ],
+    "cat": "Tech",
+    "subCat": "Languages (c++)"
+  },
+  {
     "t": "lawphil",
     "s": "Lawphil.net",
     "u": "https://cse.google.com/cse?cx=000327027907964447955:65fjwortx5c&q=%s",
@@ -50772,7 +50881,8 @@
     "u": "https://dict.leo.org/russisch-deutsch/%s",
     "d": "dict.leo.org",
     "ts": [
-      "leor"
+      "leor",
+      "лео"
     ],
     "cat": "Online Services",
     "subCat": "Tools"
@@ -51683,7 +51793,9 @@
     "s": "Lingvo Live",
     "u": "https://lingvolive.ru/translate/en-ru/%s",
     "d": "lingvolive.ru",
-    "ts": [],
+    "ts": [
+      "лингво"
+    ],
     "cat": "Online Services",
     "subCat": "Tools"
   },
@@ -51980,7 +52092,9 @@
     "s": "Litres",
     "u": "https://www.litres.ru/pages/rmd_search/?q=%s",
     "d": "www.litres.ru",
-    "ts": [],
+    "ts": [
+      "литрес"
+    ],
     "cat": "Shopping",
     "subCat": "Online (marketplace)"
   },
@@ -52535,7 +52649,9 @@
     "s": "Linux.org.ru",
     "u": "https://www.linux.org.ru/search.jsp?q=%s&range=ALL&interval=ALL&user=&_usertopic=on",
     "d": "www.linux.org.ru",
-    "ts": [],
+    "ts": [
+      "лор"
+    ],
     "cat": "Tech",
     "subCat": "Sysadmin"
   },
@@ -53865,7 +53981,9 @@
     "s": "go.mail.ru",
     "u": "https://go.mail.ru/search?fm=1&q=%s",
     "d": "go.mail.ru",
-    "ts": [],
+    "ts": [
+      "мейлру"
+    ],
     "cat": "Online Services",
     "subCat": "Search"
   },
@@ -59354,7 +59472,10 @@
     "d": "market.yandex.ru",
     "ts": [
       "yama",
-      "yandexm"
+      "yandexm",
+      "ям",
+      "яма",
+      "ямаркет"
     ],
     "cat": "Shopping",
     "subCat": "Online (marketplace)"
@@ -59546,7 +59667,9 @@
     "s": "myshows.ru",
     "u": "https://myshows.me/search/?q=%s",
     "d": "myshows.me",
-    "ts": [],
+    "ts": [
+      "мш"
+    ],
     "cat": "Entertainment",
     "subCat": "TV"
   },
@@ -59594,7 +59717,8 @@
     "ts": [
       "ytmusic",
       "ytmu",
-      "ytm"
+      "ytm",
+      "ютм"
     ],
     "cat": "Multimedia",
     "subCat": "Music"
@@ -64270,7 +64394,9 @@
     "s": "OpenNET",
     "u": "https://www.opennet.ru/search.shtml?exclude=index|/man.shtml&words=%s",
     "d": "www.opennet.ru",
-    "ts": [],
+    "ts": [
+      "опеннет"
+    ],
     "cat": "Tech",
     "subCat": "Blogs"
   },
@@ -65645,7 +65771,9 @@
     "s": "OZON",
     "u": "https://www.ozon.ru/search/?text=%s",
     "d": "www.ozon.ru",
-    "ts": [],
+    "ts": [
+      "озон"
+    ],
     "cat": "Shopping",
     "subCat": "Online"
   },
@@ -67775,7 +67903,9 @@
     "u": "https://pikabu.ru/search.php?q=%s",
     "d": "pikabu.ru",
     "ts": [
-      "pkb"
+      "pkb",
+      "пикабу",
+      "пкб"
     ],
     "cat": "Entertainment",
     "subCat": "Blogs"
@@ -72463,7 +72593,9 @@
     "s": "Bab.la Russian Verbs Conjugation",
     "u": "https://bab.la/conjugaison/russe/%s",
     "d": "bab.la",
-    "ts": [],
+    "ts": [
+      "спряжение"
+    ],
     "cat": "Research",
     "subCat": "Reference (words intl)"
   },
@@ -72508,7 +72640,10 @@
     "s": "Reverso Context Russian-English",
     "u": "https://context.reverso.net/translation/russian-english/%s",
     "d": "context.reverso.net",
-    "ts": [],
+    "ts": [
+      "реверсо",
+      "рк"
+    ],
     "cat": "Translation",
     "subCat": "General"
   },
@@ -75195,7 +75330,9 @@
     "u": "https://translate.google.com/#ru/en/%s",
     "d": "translate.google.com",
     "ts": [
-      "кгут"
+      "кгут",
+      "руан",
+      "руен"
     ],
     "cat": "Research",
     "subCat": "Reference (words)"
@@ -75205,7 +75342,10 @@
     "s": "Google Translate RU-FR",
     "u": "https://translate.google.com/#ru/fr/%s",
     "d": "translate.google.com",
-    "ts": [],
+    "ts": [
+      "кгак",
+      "руфр"
+    ],
     "cat": "Online Services",
     "subCat": "Google"
   },
@@ -75362,7 +75502,10 @@
     "s": "RuTube",
     "u": "https://rutube.ru/search.html?page=index&search=%s&search_type=track",
     "d": "rutube.ru",
-    "ts": [],
+    "ts": [
+      "рт",
+      "рутуб"
+    ],
     "cat": "Multimedia",
     "subCat": "Video"
   },
@@ -75425,7 +75568,10 @@
     "s": "Ruxpert",
     "u": "https://ruxpert.ru/index.php?search=%s",
     "d": "ruxpert.ru",
-    "ts": [],
+    "ts": [
+      "рукс",
+      "руксперт"
+    ],
     "cat": "Research",
     "subCat": "Reference"
   },
@@ -75634,26 +75780,6 @@
     "ts": [],
     "cat": "Multimedia",
     "subCat": "Images"
-  },
-  {
-    "t": "safe",
-    "s": "DDG Safesearch On",
-    "u": "/search?q=%s&kp=1",
-    "d": "kagi.com",
-    "ts": [
-      "safeon"
-    ],
-    "cat": "Online Services",
-    "subCat": "Search (DDG)"
-  },
-  {
-    "t": "safeoff",
-    "s": "Safe search off",
-    "u": "/search?q=%s&kp=-2",
-    "d": "kagi.com",
-    "ts": [],
-    "cat": "Online Services",
-    "subCat": "Search (DDG)"
   },
   {
     "t": "sage",
@@ -76840,7 +76966,9 @@
     "s": "SCP foundation --- Russian branch",
     "u": "https://scpfoundation.net/search:site/q/%s",
     "d": "scpfoundation.net",
-    "ts": [],
+    "ts": [
+      "сцп"
+    ],
     "cat": "Entertainment",
     "subCat": "Misc"
   },
@@ -79983,7 +80111,9 @@
     "s": "Sokr.ru - словарь сокращений",
     "u": "https://sokr.ru/%s/",
     "d": "sokr.ru",
-    "ts": [],
+    "ts": [
+      "сокр"
+    ],
     "cat": "Research",
     "subCat": "Reference (words intl)"
   },
@@ -80997,7 +81127,9 @@
     "s": "Square Faction",
     "u": "https://squarefaction.ru/main/search/google?searchQuery=%s",
     "d": "squarefaction.ru",
-    "ts": [],
+    "ts": [
+      "скфа"
+    ],
     "cat": "Entertainment",
     "subCat": "Games (general)"
   },
@@ -84721,7 +84853,10 @@
     "s": "Теплица социальных технологий",
     "u": "https://te-st.ru/?s=%s",
     "d": "te-st.ru",
-    "ts": [],
+    "ts": [
+      "тст",
+      "теплица"
+    ],
     "cat": "Tech",
     "subCat": "Blogs (intl)"
   },
@@ -88373,6 +88508,8 @@
       "youtube",
       "you",
       "ytb",
+      "ют",
+      "ютуб",
       "υτ"
     ],
     "cat": "Multimedia",
@@ -91771,7 +91908,9 @@
     "s": "Vkontakte",
     "u": "https://vk.com/search?c[q]=%s&c[section]=auto",
     "d": "vk.com",
-    "ts": [],
+    "ts": [
+      "вк"
+    ],
     "cat": "Online Services",
     "subCat": "Social"
   },
@@ -91780,7 +91919,9 @@
     "s": "Vkontakte video",
     "u": "https://vk.com/video?q=%s",
     "d": "vk.com",
-    "ts": [],
+    "ts": [
+      "вкв"
+    ],
     "cat": "Multimedia",
     "subCat": "Video"
   },
@@ -92642,7 +92783,9 @@
     "s": "Google Images (wallpapers)",
     "u": "https://google.com/search?tbm=isch&imgsz=xxlarge&gbv=2&safe=off&q=%s+wallpaper&btnG=Search+Images&tbs=imgo:1",
     "d": "google.com",
-    "ts": [],
+    "ts": [
+      "обои"
+    ],
     "cat": "Online Services",
     "subCat": "Google"
   },
@@ -92765,7 +92908,8 @@
     "u": "https://www.world-art.ru/search.php?public_search=%s&global_sector=all",
     "d": "www.world-art.ru",
     "ts": [
-      "worldart"
+      "worldart",
+      "ворлдарт"
     ],
     "cat": "Entertainment",
     "subCat": "Misc"
@@ -93343,7 +93487,10 @@
     "s": "WebReference",
     "u": "https://webref.ru/search/?s=%s",
     "d": "webref.ru",
-    "ts": [],
+    "ts": [
+      "вебреф",
+      "вэбреф"
+    ],
     "cat": "Tech",
     "subCat": "Languages (html)"
   },
@@ -94511,7 +94658,9 @@
     "s": "Wikivoyage (Русский)",
     "u": "https://ru.wikivoyage.org/wiki/Special:Search?search=%s&go=Go",
     "d": "ru.wikivoyage.org",
-    "ts": [],
+    "ts": [
+      "викивояж"
+    ],
     "cat": "Research",
     "subCat": "Travel"
   },
@@ -95436,7 +95585,9 @@
     "s": "WooordHunt",
     "u": "https://wooordhunt.ru/word/%s",
     "d": "wooordhunt.ru",
-    "ts": [],
+    "ts": [
+      "воо"
+    ],
     "cat": "Multimedia",
     "subCat": "General"
   },
@@ -97496,7 +97647,9 @@
     "s": "Yandex Video",
     "u": "https://ya.ru/video/search?text=%s",
     "d": "ya.ru",
-    "ts": [],
+    "ts": [
+      "яв"
+    ],
     "cat": "Online Services",
     "subCat": "Search (non-US)"
   },
@@ -97974,7 +98127,9 @@
     "s": "Youla / Юла",
     "u": "https://youla.ru/?q=%s",
     "d": "youla.ru",
-    "ts": [],
+    "ts": [
+      "юла"
+    ],
     "cat": "Shopping",
     "subCat": "Online (marketplace)"
   },
@@ -98301,7 +98456,9 @@
       "ys",
       "yad",
       "slov",
-      "yaslovari"
+      "yaslovari",
+      "яп",
+      "яс"
     ],
     "cat": "Online Services",
     "subCat": "Tools"
@@ -98311,7 +98468,9 @@
     "s": "YouTube TV",
     "u": "https://tv.youtube.com/search/%s",
     "d": "tv.youtube.com",
-    "ts": [],
+    "ts": [
+      "юттв"
+    ],
     "cat": "Entertainment",
     "subCat": "TV"
   },
@@ -99230,7 +99389,9 @@
     "s": "Storygraph",
     "u": "https://app.thestorygraph.com/browse?search_term=%s",
     "d": "app.thestorygraph.com",
-    "ts": [],
+    "ts": [
+      "tsg"
+    ],
     "cat": "Multimedia",
     "subCat": "Books"
   },
