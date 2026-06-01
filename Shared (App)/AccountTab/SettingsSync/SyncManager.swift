@@ -124,6 +124,10 @@ class SyncManager: ObservableObject {
                 // Server is newer, apply server data
                 applyServerSettings(serverSettings)
                 status = .success
+            } else if lastSync == nil && !serverSettings.customBangs.isEmpty {
+                // First sync and server has data, apply server data to avoid overwriting
+                applyServerSettings(serverSettings)
+                status = .success
             } else {
                 // Local is newer or first sync, push local
                 let customBangs = BangRepository.shared.loadCustomBangs()

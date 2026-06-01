@@ -115,9 +115,10 @@ class BangRepository {
 
     // Add new or update existing custom bang by primary trigger (case-insensitive)
     func addOrUpdateCustomBang(_ bang: Bang) throws {
-        try validate(bang: bang)
-
         var custom = loadCustomBangs()
+        let isUpdate = custom.contains { $0.trigger.caseInsensitiveCompare(bang.trigger) == .orderedSame }
+        try validate(bang: bang, isUpdate: isUpdate)
+
         // Exclude the bang being updated from collision check
         let customExcludingCurrent = custom.filter { $0.trigger.caseInsensitiveCompare(bang.trigger) != .orderedSame }
         // Prevent conflicts with existing custom triggers (including additionalTriggers)
@@ -128,7 +129,6 @@ class BangRepository {
             custom.append(bang)
         }
         saveCustomBangs(custom)
-        bumpVersion()
     }
 
     // Delete by primary trigger (case-insensitive)
@@ -136,7 +136,6 @@ class BangRepository {
         var custom = loadCustomBangs()
         custom.removeAll { $0.trigger.caseInsensitiveCompare(trigger) == .orderedSame }
         saveCustomBangs(custom)
-        bumpVersion()
     }
 
     // MARK: - Internal
@@ -165,13 +164,16 @@ class BangRepository {
 
     // MARK: - Validation and collision checks
 
-    private func validate(bang: Bang) throws {
+    private func validate(bang: Bang, isUpdate: Bool = false) throws {
         // Basic validation: non-empty fields and URL template contains a placeholder
         guard !bang.trigger.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty else {
             throw ValidationError.invalidTrigger
         }
-        guard isValidTrigger(bang.trigger) else {
-            throw ValidationError.invalidTrigger
+        // Skip uniqueness check for updates -- collision is checked separately in addOrUpdateCustomBang
+        if !isUpdate {
+            guard isValidTrigger(bang.trigger) else {
+                throw ValidationError.invalidTrigger
+            }
         }
         guard !bang.name.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty else {
             throw ValidationError.invalidName

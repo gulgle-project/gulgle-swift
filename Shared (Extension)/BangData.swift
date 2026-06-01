@@ -95,7 +95,9 @@ class BangParser {
     }
 
     func buildRedirectURL(for match: BangMatch) -> String {
-        let encodedQuery = match.query.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? match.query
+        var allowed = CharacterSet.urlQueryAllowed
+        allowed.remove(charactersIn: "&=+#")
+        let encodedQuery = match.query.addingPercentEncoding(withAllowedCharacters: allowed) ?? match.query
         let template = match.bang.urlTemplate
         if template.contains("%s") {
             return template.replacingOccurrences(of: "%s", with: encodedQuery)
