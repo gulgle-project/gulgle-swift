@@ -16,7 +16,7 @@ struct BangUsageEntry: Codable {
 class BangUsageRepository {
     static let shared = BangUsageRepository()
 
-    private let appGroupID = "group.gulgle"
+    private let appGroupID = AppConstants.appGroupID
     private let fileName = "BangUsage.json"
     private let queue = DispatchQueue(label: "link.gulgle.Gulgle.BangUsage")
 

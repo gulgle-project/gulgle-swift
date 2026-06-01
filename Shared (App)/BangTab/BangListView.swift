@@ -12,7 +12,7 @@ struct BangListView: View {
     
     var showSearch: Bool
     
-    @StateObject private var viewModel = BangListViewModel.shared
+    @ObservedObject private var viewModel = BangListViewModel.shared
     @State private var showingAdd = false
 
     var bangList: some View {

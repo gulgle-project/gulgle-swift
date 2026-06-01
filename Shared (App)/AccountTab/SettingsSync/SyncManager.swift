@@ -39,7 +39,7 @@ class SyncManager: ObservableObject {
     @Published var status: SyncStatus = .idle
 
     private let lastSyncKey = "LastSyncDate"
-    private let appGroupID = "group.gulgle"
+    private let appGroupID = AppConstants.appGroupID
 
     private init() {}
 

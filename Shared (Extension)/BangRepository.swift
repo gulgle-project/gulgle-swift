@@ -8,10 +8,14 @@
 import Foundation
 import os.log
 
+enum AppConstants {
+    static let appGroupID = "group.gulgle"
+}
+
 class BangRepository {
     static let shared = BangRepository()
 
-    private let appGroupID = "group.gulgle"
+    private let appGroupID = AppConstants.appGroupID
     private let customFileName = "CustomBangs.json"
 
     private init() {}

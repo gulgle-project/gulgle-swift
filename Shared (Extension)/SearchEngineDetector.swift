@@ -14,7 +14,6 @@ enum SearchEngine {
     case yahoo
     case ecosia
     case startpage
-    case unknown
 }
 
 struct SearchEngineDetector {
@@ -59,8 +58,6 @@ struct SearchEngineDetector {
             queryParam = "q"
         case .startpage:
             queryParam = "query"
-        case .unknown:
-            return nil
         }
 
         return queryItems.first(where: { $0.name == queryParam })?.value
@@ -78,7 +75,8 @@ struct SearchEngineDetector {
             return components.queryItems?.contains(where: { $0.name == "t" && $0.value == "safari" }) ?? false
         case .bing:
             return components.queryItems?.contains(where: { $0.name == "PC" && $0.value == "APPL" }) ?? false
-        default:
+        case .yahoo, .ecosia, .startpage:
+            // No known Safari-specific query parameter; allow bangs on these engines
             return true
         }
     }
