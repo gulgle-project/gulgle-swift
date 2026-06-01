@@ -7832,7 +7832,7 @@
   {
     "t": "barnesandnoble",
     "s": "Barnes & Noble",
-    "u": "https://www.barnesandnoble.com/s/%s",
+    "u": "https://www.barnesandnoble.com/search?q=%s",
     "d": "www.barnesandnoble.com",
     "ts": [
       "b&n",
@@ -11439,6 +11439,15 @@
     "t": "brewf",
     "s": "Homebrew Formula",
     "u": "https://formulae.brew.sh/formula/%s",
+    "d": "formulae.brew.sh",
+    "ts": [],
+    "cat": "Tech",
+    "subCat": "Downloads (software)"
+  },
+  {
+    "t": "brewc",
+    "s": "Homebrew Cask",
+    "u": "https://formulae.brew.sh/cask/%s",
     "d": "formulae.brew.sh",
     "ts": [],
     "cat": "Tech",
@@ -19141,11 +19150,11 @@
   {
     "t": "dalla",
     "s": "Diccionariu de l'Academia de la Llingua Asturiana",
-    "u": "https://asturianu.elahorcado.net/search.php?search=%s",
-    "d": "asturianu.elahorcado.net",
+    "u": "https://www.diccionariu.alladixital.org/index.php?pallabra=%s",
+    "d": "www.diccionariu.alladixital.org",
     "ts": [],
     "cat": "Research",
-    "subCat": "Academic"
+    "subCat": "Reference (words intl)"
   },
   {
     "t": "dallasnews",
@@ -28050,8 +28059,8 @@
   {
     "t": "esv",
     "s": "ESV Bible",
-    "u": "https://www.esvbible.org/search/?q=%s",
-    "d": "www.esvbible.org",
+    "u": "https://www.esv.org/search/?q=%s",
+    "d": "www.esv.org",
     "ts": [],
     "cat": "Multimedia",
     "subCat": "Books"
@@ -34128,7 +34137,7 @@
     "subCat": "Programming"
   },
   {
-    "t": "gdd",
+    "t": "godotl",
     "s": "Godot Engine Documentation",
     "u": "https://docs.godotengine.org/en/latest/search.html?q=%s&check_keywords=yes&area=default",
     "d": "docs.godotengine.org",
@@ -36720,7 +36729,9 @@
     "s": "Godot Docs",
     "u": "https://docs.godotengine.org/en/stable/search.html?q=%s&check_keywords=yes&area=default",
     "d": "docs.godotengine.org",
-    "ts": [],
+    "ts": [
+      "gdd"
+    ],
     "cat": "Tech",
     "subCat": "Programming"
   },
@@ -59971,6 +59982,15 @@
     "subCat": "Reference (religion)"
   },
   {
+    "t": "netbible",
+    "s": "netbible",
+    "u": "https://netbible.org/bible/search?q=%s",
+    "d": "netbible.org",
+    "ts": [],
+    "cat": "Research",
+    "subCat": "Reference (religion)"
+  },
+  {
     "t": "nasdaq",
     "s": "NASDAQ",
     "u": "https://www.nasdaq.com/symbol/%s/real-time",
@@ -62769,16 +62789,9 @@
     "s": "The New York Times",
     "u": "https://www.nytimes.com/search?query=%s",
     "d": "www.nytimes.com",
-    "ts": [],
-    "cat": "News",
-    "subCat": "Newspaper"
-  },
-  {
-    "t": "nyt",
-    "s": "New York Times",
-    "u": "https://query.nytimes.com/search/sitesearch?query=%s&srchst=cse",
-    "d": "query.nytimes.com",
-    "ts": [],
+    "ts": [
+      "nyt"
+    ],
     "cat": "News",
     "subCat": "Newspaper"
   },
@@ -64851,13 +64864,11 @@
     "subCat": "Search"
   },
   {
-    "t": "orf",
+    "t": "tvthek",
     "s": "ORF TVThek",
     "u": "https://tvthek.orf.at/search?q=%s",
     "d": "tvthek.orf.at",
-    "ts": [
-      "tvthek"
-    ],
+    "ts": [],
     "cat": "Entertainment",
     "subCat": "TV"
   },
@@ -65401,6 +65412,15 @@
     "ts": [],
     "cat": "Shopping",
     "subCat": "Online (marketplace)"
+  },
+  {
+    "t": "oliveyoung",
+    "s": "Olive Young",
+    "u": "https://global.oliveyoung.com/display/search?query=%s",
+    "d": "global.oliveyoung.com",
+    "ts": [],
+    "cat": "Shopping",
+    "subCat": "Online"
   },
   {
     "t": "ourdocs",
@@ -72158,17 +72178,6 @@
     "subCat": "Online"
   },
   {
-    "t": "ra",
-    "s": "Resident Advisor",
-    "u": "https://www.residentadvisor.net/search.aspx?searchstr=%s",
-    "d": "www.residentadvisor.net",
-    "ts": [
-      "residentadvisor"
-    ],
-    "cat": "Entertainment",
-    "subCat": "Misc"
-  },
-  {
     "t": "rpi",
     "s": "Raspberry Pi",
     "u": "https://www.raspberrypi.org/search/%s",
@@ -73632,6 +73641,17 @@
     ],
     "cat": "Research",
     "subCat": "Reference"
+  },
+  {
+    "t": "ra",
+    "s": "RetroAchievements",
+    "u": "https://retroachievements.org/search?query=%s",
+    "d": "retroachievements.org",
+    "ts": [
+      "retroachievements"
+    ],
+    "cat": "Entertainment",
+    "subCat": "Games (general)"
   },
   {
     "t": "retro",
@@ -91524,7 +91544,7 @@
   {
     "t": "vidal",
     "s": "VIDAL",
-    "u": "https://www.vidal.fr/recherche/index/q:%s/",
+    "u": "https://www.vidal.fr/recherche.html?query=%s/",
     "d": "www.vidal.fr",
     "ts": [],
     "cat": "Research",
@@ -99414,6 +99434,18 @@
     "subCat": "Languages (nix)"
   },
   {
+    "t": "nixhopt",
+    "s": "NixOS Home Manager Options Search",
+    "u": "https://search.nixos.org/options?query=%s&source=home_manager",
+    "d": "search.nixos.org",
+    "ts": [
+      "nixhmopt",
+      "nixhmo"
+    ],
+    "cat": "Tech",
+    "subCat": "Languages (nix)"
+  },
+  {
     "t": "noogle",
     "s": "Noogle Nix Function Search",
     "u": "https://noogle.dev/q?term=%s",
@@ -100592,6 +100624,15 @@
     ],
     "cat": "Research",
     "subCat": "Reference"
+  },
+  {
+    "t": "swh",
+    "s": "The Software Heritage Archive",
+    "u": "https://archive.softwareheritage.org/browse/search/?q=%s",
+    "d": "archive.softwareheritage.org",
+    "ts": [],
+    "cat": "Tech",
+    "subCat": "Programming"
   },
   {
     "t": "htwiki",
@@ -102076,6 +102117,20 @@
     "s": "Kagi Feedback (Discussions)",
     "u": "https://kagifeedback.org/?q=%s",
     "d": "kagifeedback.org",
+    "ts": []
+  },
+  {
+    "t": "orf",
+    "s": "Orion Feedback",
+    "u": "https://orionfeedback.org/?q=%s",
+    "d": "orionfeedback.org",
+    "ts": []
+  },
+  {
+    "t": "orfd",
+    "s": "Orion Feedback (Discussions)",
+    "u": "https://orionfeedback.org/?q=%s",
+    "d": "orionfeedback.org",
     "ts": []
   },
   {
