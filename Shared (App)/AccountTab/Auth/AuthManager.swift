@@ -26,6 +26,7 @@ class AuthManager: ObservableObject {
 
     private let authURL = "https://sync.gulgle.link/api/auth/github?platform=ios"
     private let callbackScheme = "gulgle"
+    private var authSession: ASWebAuthenticationSession?
 
     private init() {
         restoreSession()
@@ -45,6 +46,7 @@ class AuthManager: ObservableObject {
         ) { [weak self] callbackURL, authError in
             Task { @MainActor in
                 guard let self = self else { return }
+                self.authSession = nil
                 self.isLoading = false
 
                 if let authError = authError {
@@ -68,6 +70,7 @@ class AuthManager: ObservableObject {
         session.prefersEphemeralWebBrowserSession = false
         session.presentationContextProvider = ASWebAuthPresentationContext.shared
 
+        self.authSession = session
         session.start()
     }
 

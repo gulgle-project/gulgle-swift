@@ -237,6 +237,5 @@ class BangRepository {
     // Deprecated: the old updateBangs placeholder (kept to avoid breaking callers)
     func updateBangs(_ bangs: [Bang]) {
         saveCustomBangs(bangs)
-        bumpVersion()
     }
 }
