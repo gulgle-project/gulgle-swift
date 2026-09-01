@@ -5881,8 +5881,8 @@
   {
     "t": "ark",
     "s": "Intel Processor Specification",
-    "u": "https://ark.intel.com/search?q=%s",
-    "d": "ark.intel.com",
+    "u": "https://www.intel.com/content/www/us/en/search.html#cf-tabfilter=Products&q=%s",
+    "d": "www.intel.com",
     "ts": [],
     "cat": "Tech",
     "subCat": "Companies"
@@ -10321,15 +10321,6 @@
     "subCat": "Blogs"
   },
   {
-    "t": "blickaa",
-    "s": "Blick am Abend",
-    "u": "https://www.blickamabend.ch/suche/?q=%s",
-    "d": "www.blickamabend.ch",
-    "ts": [],
-    "cat": "News",
-    "subCat": "Newspaper"
-  },
-  {
     "t": "blindekuh",
     "s": "Blindekuh.de",
     "u": "https://www.blinde-kuh.de/bksearch.cgi?input=bksearchbox+start&query=%s",
@@ -14582,7 +14573,9 @@
     "s": "OpenRouter",
     "u": "https://openrouter.ai/models?q=%s",
     "d": "openrouter.ai",
-    "ts": [],
+    "ts": [
+      "openrouter"
+    ],
     "cat": "Online Services",
     "subCat": "AI Chatbots"
   },
@@ -17594,6 +17587,24 @@
     "subCat": "Health"
   },
   {
+    "t": "cptdb",
+    "s": "Canadian Public Transit Discussion Board",
+    "u": "https://cptdb.ca/search/?q=%s&quick=1",
+    "d": "cptdb.ca",
+    "ts": [],
+    "cat": "Entertainment",
+    "subCat": "Forum"
+  },
+  {
+    "t": "cptdbwiki",
+    "s": "Canadian Public Transit Discussion Board Wiki",
+    "u": "https://cptdb.ca/wiki/index.php?search=%s&title=Special:Search&go=Go",
+    "d": "cptdb.ca",
+    "ts": [],
+    "cat": "Research",
+    "subCat": "Reference"
+  },
+  {
     "t": "cpten",
     "s": "Collins Dictionary (Portuguese - English)",
     "u": "https://www.collinsdictionary.com/dictionary/portuguese-english/%s",
@@ -19900,9 +19911,7 @@
     "s": "DuckDuckGo Community",
     "u": "https://duck.co/forum/search?q=%s",
     "d": "duck.co",
-    "ts": [
-      "forum"
-    ],
+    "ts": [],
     "cat": "Online Services",
     "subCat": "Search (DDG)"
   },
@@ -35255,6 +35264,17 @@
     "subCat": "Programming"
   },
   {
+    "t": "ghpr",
+    "s": "GitHub Pull Requests",
+    "u": "https://github.com/search?q=%s&type=pullrequests",
+    "d": "github.com",
+    "ts": [
+      "ghpull"
+    ],
+    "cat": "Tech",
+    "subCat": "Programming"
+  },
+  {
     "t": "ghjs",
     "s": "GitHub JavaScript Code",
     "u": "https://github.com/search?l=JavaScript&o=desc&q=%s&s=indexed&type=Code",
@@ -38922,6 +38942,15 @@
     ],
     "cat": "Translation",
     "subCat": "Google"
+  },
+  {
+    "t": "gtk4",
+    "s": "GTK 4 Documentation",
+    "u": "https://docs.gtk.org/gtk4/index.html?q=%s",
+    "d": "docs.gtk.org",
+    "ts": [],
+    "cat": "Tech",
+    "subCat": "Programming"
   },
   {
     "t": "gtko",
@@ -46789,7 +46818,7 @@
   {
     "t": "jl",
     "s": "John Lewis",
-    "u": "https://www.johnlewis.com/Search/Search.aspx?SearchTerm=%s",
+    "u": "https://www.johnlewis.com/search?search-term=%s",
     "d": "www.johnlewis.com",
     "ts": [
       "johnlewis"
@@ -48738,6 +48767,15 @@
     "ts": [],
     "cat": "Shopping",
     "subCat": "Online"
+  },
+  {
+    "t": "klipy",
+    "s": "KLIPY",
+    "u": "https://klipy.com/search/%s",
+    "d": "klipy.com",
+    "ts": [],
+    "cat": "Multimedia",
+    "subCat": "Images"
   },
   {
     "t": "kon",
@@ -51176,6 +51214,15 @@
     "ts": [],
     "cat": "Tech",
     "subCat": "Blogs"
+  },
+  {
+    "t": "libadwaita",
+    "s": "libadwaita Documentation",
+    "u": "https://gnome.pages.gitlab.gnome.org/libadwaita/doc/1-latest/index.html?q=%s",
+    "d": "gnome.pages.gitlab.gnome.org",
+    "ts": [],
+    "cat": "Tech",
+    "subCat": "Programming"
   },
   {
     "t": "libby",
@@ -72238,11 +72285,22 @@
     "u": "https://rateyourmusic.com/search?searchterm=%s",
     "d": "rateyourmusic.com",
     "ts": [
-      "rymf",
       "rateyourmusic"
     ],
     "cat": "Entertainment",
     "subCat": "Audio"
+  },
+  {
+    "t": "rymf",
+    "s": "Rate Your Music (films)",
+    "u": "https://rateyourmusic.com/search?searchtype=F&searchterm=%s",
+    "d": "rateyourmusic.com",
+    "ts": [
+      "rymfilms",
+      "rateyourfilms"
+    ],
+    "cat": "Entertainment",
+    "subCat": "Movies"
   },
   {
     "t": "ratgeber",
@@ -86960,8 +87018,8 @@
   {
     "t": "tpl",
     "s": "Toronto Public Library",
-    "u": "https://www.torontopubliclibrary.ca/search.jsp?Ntt=%s",
-    "d": "www.torontopubliclibrary.ca",
+    "u": "https://tpl.bibliocommons.com/v2/search?query=%s&searchType=smart",
+    "d": "tpl.bibliocommons.com",
     "ts": [],
     "cat": "Research",
     "subCat": "Local"
@@ -92951,6 +93009,17 @@
     "subCat": "Games (specific)"
   },
   {
+    "t": "avakotw",
+    "s": "Avakot Wiki",
+    "u": "https://wiki.avakot.org/?search=%s",
+    "d": "wiki.avakot.org",
+    "ts": [
+      "wavakot"
+    ],
+    "cat": "Entertainment",
+    "subCat": "Games (specific)"
+  },
+  {
     "t": "warhammer",
     "s": "Total war Warhammer Wiki",
     "u": "https://totalwarwarhammer.gamepedia.com/index.php?search=%s",
@@ -93028,7 +93097,7 @@
   {
     "t": "watson",
     "s": "Watson",
-    "u": "https://www.watson.ch/u/search?#%s",
+    "u": "https://www.watson.ch/u/search?q=%s",
     "d": "www.watson.ch",
     "ts": [],
     "cat": "News",
@@ -102211,6 +102280,17 @@
     "u": "https://orionfeedback.org/?q=%s",
     "d": "orionfeedback.org",
     "ts": []
+  },
+  {
+    "t": "resowiki",
+    "s": "Resonite Wiki",
+    "u": "https://wiki.resonite.com/index.php?search=%s",
+    "d": "wiki.resonite.com",
+    "ts": [
+      "resow",
+      "resonitewiki"
+    ],
+    "cat": "Online Services"
   },
   {
     "t": "orfd",
